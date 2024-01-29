@@ -1,0 +1,15 @@
+C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\obj\Debug\Cartera Facil.csproj.AssemblyReference.cache
+C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\obj\Debug\Cartera_Facil.Properties.Resources.resources
+C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\obj\Debug\Cartera_Facil.View.Login.resources
+C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\obj\Debug\Cartera Facil.csproj.GenerateResource.cache
+C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\obj\Debug\Cartera Facil.csproj.CoreCompileInputs.cache
+C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\bin\Debug\Cartera Facil.exe.config
+C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\bin\Debug\Cartera Facil.exe
+C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\bin\Debug\Cartera Facil.pdb
+C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\obj\Debug\Cartera Facil.exe
+C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\obj\Debug\Cartera Facil.pdb
+C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\bin\Debug\Guna.UI.dll
+C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\obj\Debug\Cartera Facil.csproj.CopyComplete
+C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\bin\Debug\Bunifu_UI_v1.52 (1).dll
+C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\obj\Debug\Cartera_Facil.View.RecoverPassword.resources
+C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\obj\Debug\Cartera_Facil.View.MainWindow.resources
