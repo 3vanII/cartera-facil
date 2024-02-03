@@ -7,18 +7,51 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Cartera_Facil.Model;
+using Guna.UI.WinForms;
+using System.IO;
 
 namespace Cartera_Facil.View
 {
     internal class ViewFunctions
     {
+        Entities2 entities = new Entities2();
         public FormWindowState WindowState { get; private set; }
+
         #region //Move the form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         public extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         public extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         #endregion
+
+        public Image UploadImage(PictureBox ob)//Cargar Imagen
+        {
+            OpenFileDialog searchImage = new OpenFileDialog();
+            searchImage.Title = "Seleccionar imagen";
+            if (searchImage.ShowDialog() == DialogResult.OK)
+            {
+                Image imagen = Image.FromFile(searchImage.FileName);
+                ob.Image = imagen;
+            }
+            return ob.Image;
+        }
+
+        public Image UploadPhotoByDefault(string route, PictureBox ob)//Cargar foto por defecto
+        {
+            Image image = Image.FromFile(route);
+            ob.Image = image;
+            return ob.Image;
+        }
+
+        public static byte[] Image2Byte(Image img)//Convertir una imagen a un array de bytes
+        {
+            using (var ms = new MemoryStream())
+            {
+                img.Save(ms, img.RawFormat);
+                return ms.ToArray();
+            }
+        }
 
         public static GraphicsPath GetRoundedPath(Rectangle rect, float radius)
         {
@@ -58,6 +91,38 @@ namespace Cartera_Facil.View
                     }
                 }
             }
+        }
+
+        public object LlenarCombobox<E>(List<E> lista, string valueMember, string displayMember, ComboBox ob)
+        {
+            ob.DataSource = lista;
+            ob.DisplayMember = displayMember;
+            ob.ValueMember = valueMember;
+            ob.SelectedIndex = 0;
+            ob.MaxDropDownItems = 5;
+            return ob.SelectedValue;
+        }
+
+        public bool CheckDocumentNumber(GunaTextBox identificationNumber) //comprobar numero de documento
+        {
+            string document = identificationNumber.Text;
+            var queryCedula = entities.USUARIOS.Any
+                (x => x.ID == document);
+            if (queryCedula == true)
+                return true;
+            else
+                return false;
+        }
+
+        public bool CheckEmail(GunaTextBox identificationEmail)
+        {
+            string email = identificationEmail.Text;
+            var queryEmail = entities.USUARIOS.Any
+                (x => x.EMAIL == email);
+            if(queryEmail == true)
+                   return true;
+            else 
+                return false;
         }
     }
 }

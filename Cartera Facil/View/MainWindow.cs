@@ -22,8 +22,63 @@ namespace Cartera_Facil.View
         {
             InitializeComponent();
             CustomizeDesing();
-            this.Padding = new Padding(2);
-            this.BackColor = Color.FromArgb(255, 255, 255);
+            leftBorderBtn = new Panel();
+            leftBorderBtn.Size = new Size(7, 45);
+            sideMenuPanel.Controls.Add(leftBorderBtn);
+        }
+
+        private void OpenChildForm(Form childForm)
+        {
+            if (currentChildForm != null)
+            {
+                currentChildForm.Close();
+            }
+            currentChildForm = childForm;
+
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            pnlMain.Controls.Add(childForm);
+            pnlMain.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+            pnlMain.Text = childForm.Text;
+        }
+
+        private void DislabelButton()
+        {
+            if (currentBtn != null)
+            {
+                currentBtn.BackColor = Color.FromArgb(91, 125, 207);
+                currentBtn.ForeColor = Color.White;
+                currentBtn.TextAlign = ContentAlignment.MiddleLeft;
+                currentBtn.IconColor = Color.White;
+                currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+                currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            }
+        }
+
+        private void ActivateButton(object senderBtn, Color color)
+        {
+            if (senderBtn != null)
+            {
+                DislabelButton();
+                currentBtn = (IconButton)senderBtn;
+                currentBtn.BackColor = Color.FromArgb(145, 168, 223);
+                currentBtn.ForeColor = color;
+                currentBtn.TextAlign = ContentAlignment.MiddleCenter;
+                currentBtn.IconColor = color;
+                currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
+                currentBtn.ImageAlign = ContentAlignment.MiddleRight;
+
+                leftBorderBtn.BackColor = color;
+                leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
+                leftBorderBtn.Visible = true;
+                leftBorderBtn.BringToFront();
+
+                iconFormChild.IconChar = currentBtn.IconChar;
+            }
+
         }
 
         private void CustomizeDesing()
@@ -53,11 +108,13 @@ namespace Cartera_Facil.View
 
         private void btnUser_Click(object sender, EventArgs e)
         {
+            ActivateButton(sender, Color.FromArgb(27, 29, 29));
             ShowSubMenu(subMenuUsers);
         }
 
         private void btnLoan_Click(object sender, EventArgs e)
         {
+            ActivateButton(sender, Color.FromArgb(27, 29, 29));
             ShowSubMenu(subMenuLoan);
         }
 
@@ -67,15 +124,7 @@ namespace Cartera_Facil.View
                 tu
                 codigo
                 aqui*/
-            HideSubMenu();
-        }
-
-        private void btnEditUser_Click(object sender, EventArgs e)
-        {
-            /*escribe
-                tu
-                codigo
-                aqui*/
+            OpenChildForm(new View.CreateUser());
             HideSubMenu();
         }
 
@@ -94,6 +143,7 @@ namespace Cartera_Facil.View
                 tu
                 codigo
                 aqui*/
+            
             HideSubMenu();
         }
 
@@ -101,6 +151,21 @@ namespace Cartera_Facil.View
         {
             ViewFunctions.ReleaseCapture();
             ViewFunctions.SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void btnWallet_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, Color.FromArgb(27, 29, 29));
+        }
+
+        private void btnSimulator_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, Color.FromArgb(27, 29, 29));
+        }
+
+        private void btnToday_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, Color.FromArgb(27, 29, 29));
         }
     }
 }

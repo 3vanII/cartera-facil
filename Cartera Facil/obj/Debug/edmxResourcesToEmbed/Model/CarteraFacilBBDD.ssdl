@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CARTERA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="CAPITAL" Type="float" Nullable="false" />
+    <Property Name="CAPITAL_CAJA" Type="float" Nullable="false" />
+    <Property Name="CAPITAL_PRESTADO" Type="float" />
+    <Property Name="UTILIDADES" Type="float" />
+    <Property Name="UTILIDAD_CAJA" Type="float" />
+    <Property Name="UTILIDAD_PRESTADA" Type="float" />
+    <Property Name="SEGURO" Type="float" />
+    <Property Name="TOTAL_CARTERA" Type="float" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DEPARTAMENTOS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="DEPARTAMENTO" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DOCUMENTOS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DOCUMENTO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="MODALIDAD_PAGO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MODALIDAD" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MUNICIPIOS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="MUNICIPIO" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ESTADO" Type="int" />
+    <Property Name="DEPARTAMENTO_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PAGOS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="FECHA" Type="date" Nullable="false" />
+    <Property Name="CANTIDAD" Type="float" Nullable="false" />
+    <Property Name="USUARIO_ID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PRESTAMOS_ID" Type="varchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PRESTAMOS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="CLIENTE_ID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CANTIDAD" Type="float" Nullable="false" />
+    <Property Name="TASA_INTERES" Type="int" Nullable="false" />
+    <Property Name="TIEMPO" Type="int" Nullable="false" />
+    <Property Name="MODALIDAD_ID" Type="int" Nullable="false" />
+    <Property Name="FECHA" Type="date" Nullable="false" />
+    <Property Name="AMORTIZACION" Type="float" />
+    <Property Name="SALDO" Type="float" Nullable="false" />
+    <Property Name="CANTIDAD_CUOTAS" Type="int" Nullable="false" />
+    <Property Name="CUOTAS_PAGADAS" Type="int" Nullable="false" />
+    <Property Name="CUOTAS_POR_PAGAR" Type="int" Nullable="false" />
+    <Property Name="SALDO_MORA" Type="float" />
+    <Property Name="USUARIO_ID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PASSWORD" Type="varchar" MaxLength="100" />
+    <Property Name="CARTERA_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="RETIROS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="FECHA" Type="date" Nullable="false" />
+    <Property Name="CANTIDAD" Type="float" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="CARTERA_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ROLES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CARGO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="USUARIOS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DOCUMENTO_ID" Type="int" Nullable="false" />
+    <Property Name="NOMBRES" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="APELLIDO" Type="varchar" MaxLength="250" />
+    <Property Name="DEPARTAMENTO_ID" Type="int" Nullable="false" />
+    <Property Name="MUNICIPIO_ID" Type="int" Nullable="false" />
+    <Property Name="DIRECCION" Type="varchar" MaxLength="225" Nullable="false" />
+    <Property Name="ROL_ID" Type="int" Nullable="false" />
+    <Property Name="FOTO" Type="varbinary(max)" />
+    <Property Name="DIRECCION_TRABAJO" Type="varchar" MaxLength="225" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_MUNICIPIOS_DEPARTAMENTOS">
+    <End Role="DEPARTAMENTOS" Type="Self.DEPARTAMENTOS" Multiplicity="1" />
+    <End Role="MUNICIPIOS" Type="Self.MUNICIPIOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEPARTAMENTOS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MUNICIPIOS">
+        <PropertyRef Name="DEPARTAMENTO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PAGOS_PRESTAMOS">
+    <End Role="PRESTAMOS" Type="Self.PRESTAMOS" Multiplicity="1" />
+    <End Role="PAGOS" Type="Self.PAGOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRESTAMOS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PAGOS">
+        <PropertyRef Name="PRESTAMOS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PAGOS_USUARIOS">
+    <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="1" />
+    <End Role="PAGOS" Type="Self.PAGOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIOS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PAGOS">
+        <PropertyRef Name="USUARIO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRESTAMOS_CARTERA">
+    <End Role="CARTERA" Type="Self.CARTERA" Multiplicity="0..1" />
+    <End Role="PRESTAMOS" Type="Self.PRESTAMOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CARTERA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PRESTAMOS">
+        <PropertyRef Name="CARTERA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRESTAMOS_MODALIDAD_PAGO">
+    <End Role="MODALIDAD_PAGO" Type="Self.MODALIDAD_PAGO" Multiplicity="1" />
+    <End Role="PRESTAMOS" Type="Self.PRESTAMOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MODALIDAD_PAGO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PRESTAMOS">
+        <PropertyRef Name="MODALIDAD_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRESTAMOS_USUARIOS">
+    <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="1" />
+    <End Role="PRESTAMOS" Type="Self.PRESTAMOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIOS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PRESTAMOS">
+        <PropertyRef Name="CLIENTE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRESTAMOS_USUARIOS1">
+    <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="1" />
+    <End Role="PRESTAMOS" Type="Self.PRESTAMOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIOS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PRESTAMOS">
+        <PropertyRef Name="USUARIO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RETIROS_CARTERA">
+    <End Role="CARTERA" Type="Self.CARTERA" Multiplicity="1" />
+    <End Role="RETIROS" Type="Self.RETIROS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CARTERA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RETIROS">
+        <PropertyRef Name="CARTERA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USUARIOS_DEPARTAMENTOS">
+    <End Role="DEPARTAMENTOS" Type="Self.DEPARTAMENTOS" Multiplicity="1" />
+    <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEPARTAMENTOS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="USUARIOS">
+        <PropertyRef Name="DEPARTAMENTO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USUARIOS_DOCUMENTOS">
+    <End Role="DOCUMENTOS" Type="Self.DOCUMENTOS" Multiplicity="1" />
+    <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOCUMENTOS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="USUARIOS">
+        <PropertyRef Name="DOCUMENTO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USUARIOS_MUNICIPIOS">
+    <End Role="MUNICIPIOS" Type="Self.MUNICIPIOS" Multiplicity="1" />
+    <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MUNICIPIOS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="USUARIOS">
+        <PropertyRef Name="MUNICIPIO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USUARIOS_ROLES">
+    <End Role="ROLES" Type="Self.ROLES" Multiplicity="1" />
+    <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ROLES">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="USUARIOS">
+        <PropertyRef Name="ROL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="CARTERA" EntityType="Self.CARTERA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DEPARTAMENTOS" EntityType="Self.DEPARTAMENTOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DOCUMENTOS" EntityType="Self.DOCUMENTOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MODALIDAD_PAGO" EntityType="Self.MODALIDAD_PAGO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MUNICIPIOS" EntityType="Self.MUNICIPIOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PAGOS" EntityType="Self.PAGOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRESTAMOS" EntityType="Self.PRESTAMOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RETIROS" EntityType="Self.RETIROS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ROLES" EntityType="Self.ROLES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_MUNICIPIOS_DEPARTAMENTOS" Association="Self.FK_MUNICIPIOS_DEPARTAMENTOS">
+      <End Role="DEPARTAMENTOS" EntitySet="DEPARTAMENTOS" />
+      <End Role="MUNICIPIOS" EntitySet="MUNICIPIOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PAGOS_PRESTAMOS" Association="Self.FK_PAGOS_PRESTAMOS">
+      <End Role="PRESTAMOS" EntitySet="PRESTAMOS" />
+      <End Role="PAGOS" EntitySet="PAGOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PAGOS_USUARIOS" Association="Self.FK_PAGOS_USUARIOS">
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+      <End Role="PAGOS" EntitySet="PAGOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRESTAMOS_CARTERA" Association="Self.FK_PRESTAMOS_CARTERA">
+      <End Role="CARTERA" EntitySet="CARTERA" />
+      <End Role="PRESTAMOS" EntitySet="PRESTAMOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRESTAMOS_MODALIDAD_PAGO" Association="Self.FK_PRESTAMOS_MODALIDAD_PAGO">
+      <End Role="MODALIDAD_PAGO" EntitySet="MODALIDAD_PAGO" />
+      <End Role="PRESTAMOS" EntitySet="PRESTAMOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRESTAMOS_USUARIOS" Association="Self.FK_PRESTAMOS_USUARIOS">
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+      <End Role="PRESTAMOS" EntitySet="PRESTAMOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRESTAMOS_USUARIOS1" Association="Self.FK_PRESTAMOS_USUARIOS1">
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+      <End Role="PRESTAMOS" EntitySet="PRESTAMOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RETIROS_CARTERA" Association="Self.FK_RETIROS_CARTERA">
+      <End Role="CARTERA" EntitySet="CARTERA" />
+      <End Role="RETIROS" EntitySet="RETIROS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USUARIOS_DEPARTAMENTOS" Association="Self.FK_USUARIOS_DEPARTAMENTOS">
+      <End Role="DEPARTAMENTOS" EntitySet="DEPARTAMENTOS" />
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USUARIOS_DOCUMENTOS" Association="Self.FK_USUARIOS_DOCUMENTOS">
+      <End Role="DOCUMENTOS" EntitySet="DOCUMENTOS" />
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USUARIOS_MUNICIPIOS" Association="Self.FK_USUARIOS_MUNICIPIOS">
+      <End Role="MUNICIPIOS" EntitySet="MUNICIPIOS" />
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USUARIOS_ROLES" Association="Self.FK_USUARIOS_ROLES">
+      <End Role="ROLES" EntitySet="ROLES" />
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
