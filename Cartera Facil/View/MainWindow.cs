@@ -42,7 +42,7 @@ namespace Cartera_Facil.View
             pnlMain.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
-            pnlMain.Text = childForm.Text;
+            lblForm.Text = childForm.Text;
         }
 
         private void DislabelButton()
@@ -161,6 +161,7 @@ namespace Cartera_Facil.View
         private void btnSimulator_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(27, 29, 29));
+            OpenChildForm(new View.Simulator());
         }
 
         private void btnToday_Click(object sender, EventArgs e)

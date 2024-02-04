@@ -29,6 +29,7 @@
         <AssociationConnector Association="Model.FK_PAGOS_PRESTAMOS" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_PAGOS_USUARIOS" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_PRESTAMOS_USUARIOS2" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_USUARIOS_ROLES" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

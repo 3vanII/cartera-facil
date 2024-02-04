@@ -146,23 +146,23 @@
             // 
             this.lblDocumentType.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDocumentType.AutoSize = true;
-            this.lblDocumentType.Font = new System.Drawing.Font("Segoe UI Semibold", 14.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDocumentType.Location = new System.Drawing.Point(254, 137);
+            this.lblDocumentType.Font = new System.Drawing.Font("Segoe UI Semibold", 13.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDocumentType.Location = new System.Drawing.Point(254, 140);
             this.lblDocumentType.Name = "lblDocumentType";
-            this.lblDocumentType.Size = new System.Drawing.Size(153, 28);
+            this.lblDocumentType.Size = new System.Drawing.Size(178, 25);
             this.lblDocumentType.TabIndex = 6;
-            this.lblDocumentType.Text = "Document type";
+            this.lblDocumentType.Text = "Tipo de documento";
             // 
             // lblIdentificationNumber
             // 
             this.lblIdentificationNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblIdentificationNumber.AutoSize = true;
-            this.lblIdentificationNumber.Font = new System.Drawing.Font("Segoe UI Semibold", 14.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdentificationNumber.Location = new System.Drawing.Point(507, 136);
+            this.lblIdentificationNumber.Font = new System.Drawing.Font("Segoe UI Semibold", 13.75F, System.Drawing.FontStyle.Bold);
+            this.lblIdentificationNumber.Location = new System.Drawing.Point(507, 137);
             this.lblIdentificationNumber.Name = "lblIdentificationNumber";
-            this.lblIdentificationNumber.Size = new System.Drawing.Size(210, 28);
+            this.lblIdentificationNumber.Size = new System.Drawing.Size(212, 25);
             this.lblIdentificationNumber.TabIndex = 7;
-            this.lblIdentificationNumber.Text = "Identification number";
+            this.lblIdentificationNumber.Text = "Número de documento";
             // 
             // txtNames
             // 
@@ -175,7 +175,7 @@
             this.txtNames.FocusedBorderColor = System.Drawing.Color.Black;
             this.txtNames.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtNames.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNames.Location = new System.Drawing.Point(259, 251);
+            this.txtNames.Location = new System.Drawing.Point(259, 253);
             this.txtNames.Name = "txtNames";
             this.txtNames.PasswordChar = '\0';
             this.txtNames.Radius = 10;
@@ -187,12 +187,12 @@
             // 
             this.lblNames.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNames.AutoSize = true;
-            this.lblNames.Font = new System.Drawing.Font("Segoe UI Semibold", 14.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNames.Location = new System.Drawing.Point(254, 222);
+            this.lblNames.Font = new System.Drawing.Font("Segoe UI Semibold", 13.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNames.Location = new System.Drawing.Point(254, 225);
             this.lblNames.Name = "lblNames";
-            this.lblNames.Size = new System.Drawing.Size(75, 28);
+            this.lblNames.Size = new System.Drawing.Size(91, 25);
             this.lblNames.TabIndex = 9;
-            this.lblNames.Text = "Names";
+            this.lblNames.Text = "Nombres";
             // 
             // txtSurnames
             // 
@@ -205,7 +205,7 @@
             this.txtSurnames.FocusedBorderColor = System.Drawing.Color.Black;
             this.txtSurnames.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtSurnames.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSurnames.Location = new System.Drawing.Point(512, 250);
+            this.txtSurnames.Location = new System.Drawing.Point(512, 253);
             this.txtSurnames.Name = "txtSurnames";
             this.txtSurnames.PasswordChar = '\0';
             this.txtSurnames.Radius = 10;
@@ -217,23 +217,23 @@
             // 
             this.lblSurnames.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblSurnames.AutoSize = true;
-            this.lblSurnames.Font = new System.Drawing.Font("Segoe UI Semibold", 14.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSurnames.Location = new System.Drawing.Point(507, 221);
+            this.lblSurnames.Font = new System.Drawing.Font("Segoe UI Semibold", 13.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSurnames.Location = new System.Drawing.Point(507, 225);
             this.lblSurnames.Name = "lblSurnames";
-            this.lblSurnames.Size = new System.Drawing.Size(102, 28);
+            this.lblSurnames.Size = new System.Drawing.Size(91, 25);
             this.lblSurnames.TabIndex = 11;
-            this.lblSurnames.Text = "Surnames";
+            this.lblSurnames.Text = "Apellidos";
             // 
             // lblUserRole
             // 
             this.lblUserRole.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblUserRole.AutoSize = true;
-            this.lblUserRole.Font = new System.Drawing.Font("Segoe UI Semibold", 14.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserRole.Location = new System.Drawing.Point(6, 221);
+            this.lblUserRole.Font = new System.Drawing.Font("Segoe UI Semibold", 13.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserRole.Location = new System.Drawing.Point(6, 225);
             this.lblUserRole.Name = "lblUserRole";
-            this.lblUserRole.Size = new System.Drawing.Size(98, 28);
+            this.lblUserRole.Size = new System.Drawing.Size(63, 25);
             this.lblUserRole.TabIndex = 26;
-            this.lblUserRole.Text = "User Role";
+            this.lblUserRole.Text = "Cargo";
             // 
             // ComboBoxRol
             // 
@@ -247,7 +247,7 @@
             this.ComboBoxRol.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ComboBoxRol.ForeColor = System.Drawing.Color.Black;
             this.ComboBoxRol.FormattingEnabled = true;
-            this.ComboBoxRol.Location = new System.Drawing.Point(11, 252);
+            this.ComboBoxRol.Location = new System.Drawing.Point(11, 253);
             this.ComboBoxRol.Name = "ComboBoxRol";
             this.ComboBoxRol.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.ComboBoxRol.OnHoverItemForeColor = System.Drawing.Color.White;
@@ -297,11 +297,12 @@
             this.lblIdentificationNumberInvalid.AutoSize = true;
             this.lblIdentificationNumberInvalid.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIdentificationNumberInvalid.ForeColor = System.Drawing.Color.Red;
-            this.lblIdentificationNumberInvalid.Location = new System.Drawing.Point(569, 200);
+            this.lblIdentificationNumberInvalid.Location = new System.Drawing.Point(559, 200);
             this.lblIdentificationNumberInvalid.Name = "lblIdentificationNumberInvalid";
-            this.lblIdentificationNumberInvalid.Size = new System.Drawing.Size(172, 17);
+            this.lblIdentificationNumberInvalid.Size = new System.Drawing.Size(183, 17);
             this.lblIdentificationNumberInvalid.TabIndex = 40;
-            this.lblIdentificationNumberInvalid.Text = "Identification number invalid";
+            this.lblIdentificationNumberInvalid.Text = "Número de identidad inválido";
+            this.lblIdentificationNumberInvalid.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblIdentificationNumberInvalid.Visible = false;
             // 
             // label1
@@ -309,11 +310,11 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 29.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(385, 51);
+            this.label1.Location = new System.Drawing.Point(361, 51);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(235, 44);
+            this.label1.Size = new System.Drawing.Size(270, 44);
             this.label1.TabIndex = 41;
-            this.label1.Text = "Create user";
+            this.label1.Text = "Crear usuario";
             // 
             // txtIdentificationNumber
             // 
@@ -381,9 +382,9 @@
             this.lblDepartament.Font = new System.Drawing.Font("Segoe UI Semibold", 14.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDepartament.Location = new System.Drawing.Point(6, 310);
             this.lblDepartament.Name = "lblDepartament";
-            this.lblDepartament.Size = new System.Drawing.Size(132, 28);
+            this.lblDepartament.Size = new System.Drawing.Size(144, 28);
             this.lblDepartament.TabIndex = 14;
-            this.lblDepartament.Text = "Departament";
+            this.lblDepartament.Text = "Departamento";
             // 
             // lblConfirmationEmail
             // 
@@ -402,11 +403,11 @@
             this.lblCity.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCity.AutoSize = true;
             this.lblCity.Font = new System.Drawing.Font("Segoe UI Semibold", 14.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCity.Location = new System.Drawing.Point(256, 309);
+            this.lblCity.Location = new System.Drawing.Point(256, 310);
             this.lblCity.Name = "lblCity";
-            this.lblCity.Size = new System.Drawing.Size(46, 28);
+            this.lblCity.Size = new System.Drawing.Size(102, 28);
             this.lblCity.TabIndex = 16;
-            this.lblCity.Text = "City";
+            this.lblCity.Text = "Municipio";
             // 
             // lblResidenceAddress
             // 
@@ -415,9 +416,9 @@
             this.lblResidenceAddress.Font = new System.Drawing.Font("Segoe UI Semibold", 14.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResidenceAddress.Location = new System.Drawing.Point(507, 310);
             this.lblResidenceAddress.Name = "lblResidenceAddress";
-            this.lblResidenceAddress.Size = new System.Drawing.Size(179, 28);
+            this.lblResidenceAddress.Size = new System.Drawing.Size(96, 28);
             this.lblResidenceAddress.TabIndex = 17;
-            this.lblResidenceAddress.Text = "Residence address";
+            this.lblResidenceAddress.Text = "Dirección";
             // 
             // txtResidenceAddress
             // 
@@ -430,7 +431,7 @@
             this.txtResidenceAddress.FocusedBorderColor = System.Drawing.Color.Black;
             this.txtResidenceAddress.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtResidenceAddress.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtResidenceAddress.Location = new System.Drawing.Point(512, 339);
+            this.txtResidenceAddress.Location = new System.Drawing.Point(512, 341);
             this.txtResidenceAddress.Name = "txtResidenceAddress";
             this.txtResidenceAddress.PasswordChar = '\0';
             this.txtResidenceAddress.Radius = 10;
@@ -443,11 +444,11 @@
             this.lblPhone.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPhone.AutoSize = true;
             this.lblPhone.Font = new System.Drawing.Font("Segoe UI Semibold", 14.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhone.Location = new System.Drawing.Point(5, 395);
+            this.lblPhone.Location = new System.Drawing.Point(5, 394);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(71, 28);
+            this.lblPhone.Size = new System.Drawing.Size(91, 28);
             this.lblPhone.TabIndex = 21;
-            this.lblPhone.Text = "Phone";
+            this.lblPhone.Text = "Telefono";
             // 
             // txtPhone
             // 
@@ -490,7 +491,7 @@
             this.txtEmail.FocusedBorderColor = System.Drawing.Color.Black;
             this.txtEmail.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(261, 423);
+            this.txtEmail.Location = new System.Drawing.Point(261, 424);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PasswordChar = '\0';
             this.txtEmail.Radius = 10;
@@ -503,7 +504,7 @@
             this.lblConfirmationResidenceAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblConfirmationResidenceAddress.Font = new System.Drawing.Font("Segoe UI Semibold", 14.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConfirmationResidenceAddress.ForeColor = System.Drawing.Color.Red;
-            this.lblConfirmationResidenceAddress.Location = new System.Drawing.Point(723, 311);
+            this.lblConfirmationResidenceAddress.Location = new System.Drawing.Point(723, 312);
             this.lblConfirmationResidenceAddress.Name = "lblConfirmationResidenceAddress";
             this.lblConfirmationResidenceAddress.Size = new System.Drawing.Size(18, 25);
             this.lblConfirmationResidenceAddress.TabIndex = 35;
@@ -539,7 +540,7 @@
             "w",
             "r",
             "t"});
-            this.ComboBoxCity.Location = new System.Drawing.Point(261, 340);
+            this.ComboBoxCity.Location = new System.Drawing.Point(261, 341);
             this.ComboBoxCity.MaxDropDownItems = 6;
             this.ComboBoxCity.Name = "ComboBoxCity";
             this.ComboBoxCity.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
@@ -554,11 +555,13 @@
             this.lblEmailInvalid.AutoSize = true;
             this.lblEmailInvalid.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmailInvalid.ForeColor = System.Drawing.Color.Red;
-            this.lblEmailInvalid.Location = new System.Drawing.Point(409, 458);
+            this.lblEmailInvalid.Location = new System.Drawing.Point(403, 459);
             this.lblEmailInvalid.Name = "lblEmailInvalid";
-            this.lblEmailInvalid.Size = new System.Drawing.Size(80, 17);
+            this.lblEmailInvalid.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblEmailInvalid.Size = new System.Drawing.Size(88, 17);
             this.lblEmailInvalid.TabIndex = 42;
-            this.lblEmailInvalid.Text = "Email invalid";
+            this.lblEmailInvalid.Text = "Email inválido";
+            this.lblEmailInvalid.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblEmailInvalid.Visible = false;
             // 
             // CreateUser
@@ -600,7 +603,7 @@
             this.Controls.Add(this.ptbhoto);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CreateUser";
-            this.Text = "CreateUser";
+            this.Text = "Crear usuario";
             ((System.ComponentModel.ISupportInitialize)(this.ptbhoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

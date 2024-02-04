@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CARTERA">
           <Key>
             <PropertyRef Name="ID" />
@@ -288,6 +288,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_USUARIOS_ROLES">
+          <End Role="ROLES" Type="Self.ROLES" Multiplicity="1" />
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROLES">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="USUARIOS">
+              <PropertyRef Name="ROL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="CARTERA" EntityType="Self.CARTERA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CLIENTES" EntityType="Self.CLIENTES" Schema="dbo" store:Type="Tables" />
@@ -349,9 +361,12 @@
             <End Role="CARTERA" EntitySet="CARTERA" />
             <End Role="RETIROS" EntitySet="RETIROS" />
           </AssociationSet>
+          <AssociationSet Name="FK_USUARIOS_ROLES" Association="Self.FK_USUARIOS_ROLES">
+            <End Role="ROLES" EntitySet="ROLES" />
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -488,6 +503,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CARGO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DESCRIPCION" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="USUARIOS" Relationship="Model.FK_USUARIOS_ROLES" FromRole="ROLES" ToRole="USUARIOS" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -517,6 +533,7 @@
           <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="PAGOS" Relationship="Self.FK_PAGOS_USUARIOS" FromRole="USUARIOS" ToRole="PAGOS" />
           <NavigationProperty Name="PRESTAMOS" Relationship="Self.FK_PRESTAMOS_USUARIOS2" FromRole="USUARIOS" ToRole="PRESTAMOS" />
+          <NavigationProperty Name="ROLES" Relationship="Model.FK_USUARIOS_ROLES" FromRole="USUARIOS" ToRole="ROLES" />
         </EntityType>
         <Association Name="FK_PRESTAMOS_CARTERA">
           <End Role="CARTERA" Type="Self.CARTERA" Multiplicity="0..1" />
@@ -723,7 +740,23 @@
             <End Role="USUARIOS" EntitySet="USUARIOS" />
             <End Role="PRESTAMOS" EntitySet="PRESTAMOS" />
           </AssociationSet>
+          <AssociationSet Name="FK_USUARIOS_ROLES" Association="Model.FK_USUARIOS_ROLES">
+            <End Role="ROLES" EntitySet="ROLES" />
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_USUARIOS_ROLES">
+          <End Type="Model.ROLES" Role="ROLES" Multiplicity="1" />
+          <End Type="Model.USUARIOS" Role="USUARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROLES">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="USUARIOS">
+              <PropertyRef Name="ROL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

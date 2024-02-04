@@ -38,5 +38,6 @@ namespace Cartera_Facil.Model
         public virtual ICollection<PAGOS> PAGOS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PRESTAMOS> PRESTAMOS { get; set; }
+        public virtual ROLES ROLES { get; set; }
     }
 }

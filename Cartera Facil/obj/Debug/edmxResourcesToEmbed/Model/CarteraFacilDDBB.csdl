@@ -133,6 +133,7 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="CARGO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="DESCRIPCION" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="USUARIOS" Relationship="Model.FK_USUARIOS_ROLES" FromRole="ROLES" ToRole="USUARIOS" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -162,6 +163,7 @@
     <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="PAGOS" Relationship="Self.FK_PAGOS_USUARIOS" FromRole="USUARIOS" ToRole="PAGOS" />
     <NavigationProperty Name="PRESTAMOS" Relationship="Self.FK_PRESTAMOS_USUARIOS2" FromRole="USUARIOS" ToRole="PRESTAMOS" />
+    <NavigationProperty Name="ROLES" Relationship="Model.FK_USUARIOS_ROLES" FromRole="USUARIOS" ToRole="ROLES" />
   </EntityType>
   <Association Name="FK_PRESTAMOS_CARTERA">
     <End Role="CARTERA" Type="Self.CARTERA" Multiplicity="0..1" />
@@ -368,5 +370,21 @@
       <End Role="USUARIOS" EntitySet="USUARIOS" />
       <End Role="PRESTAMOS" EntitySet="PRESTAMOS" />
     </AssociationSet>
+    <AssociationSet Name="FK_USUARIOS_ROLES" Association="Model.FK_USUARIOS_ROLES">
+      <End Role="ROLES" EntitySet="ROLES" />
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+    </AssociationSet>
   </EntityContainer>
+  <Association Name="FK_USUARIOS_ROLES">
+    <End Type="Model.ROLES" Role="ROLES" Multiplicity="1" />
+    <End Type="Model.USUARIOS" Role="USUARIOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ROLES">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="USUARIOS">
+        <PropertyRef Name="ROL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

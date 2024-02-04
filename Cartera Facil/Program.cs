@@ -16,7 +16,7 @@ namespace Cartera_Facil
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new View.CreateUser());
+            Application.Run(new View.MainWindow());
         }
     }
 }
