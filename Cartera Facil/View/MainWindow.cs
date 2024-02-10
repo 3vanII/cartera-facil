@@ -42,7 +42,6 @@ namespace Cartera_Facil.View
             pnlMain.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
-            lblForm.Text = childForm.Text;
         }
 
         private void DislabelButton()

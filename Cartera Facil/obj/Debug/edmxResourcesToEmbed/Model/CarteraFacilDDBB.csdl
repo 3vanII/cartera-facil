@@ -164,6 +164,7 @@
     <NavigationProperty Name="PAGOS" Relationship="Self.FK_PAGOS_USUARIOS" FromRole="USUARIOS" ToRole="PAGOS" />
     <NavigationProperty Name="PRESTAMOS" Relationship="Self.FK_PRESTAMOS_USUARIOS2" FromRole="USUARIOS" ToRole="PRESTAMOS" />
     <NavigationProperty Name="ROLES" Relationship="Model.FK_USUARIOS_ROLES" FromRole="USUARIOS" ToRole="ROLES" />
+    <Property Name="HABILITADO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="FK_PRESTAMOS_CARTERA">
     <End Role="CARTERA" Type="Self.CARTERA" Multiplicity="0..1" />

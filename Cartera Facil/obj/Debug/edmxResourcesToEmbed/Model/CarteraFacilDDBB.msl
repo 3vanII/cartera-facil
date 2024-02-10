@@ -137,6 +137,7 @@
     <EntitySetMapping Name="USUARIOS">
       <EntityTypeMapping TypeName="Model.USUARIOS">
         <MappingFragment StoreEntitySet="USUARIOS">
+          <ScalarProperty Name="HABILITADO" ColumnName="HABILITADO" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="DOCUMENTO_ID" ColumnName="DOCUMENTO_ID" />
           <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />

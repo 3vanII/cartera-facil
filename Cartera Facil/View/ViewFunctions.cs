@@ -10,13 +10,18 @@ using System.Windows.Forms;
 using Cartera_Facil.Model;
 using Guna.UI.WinForms;
 using System.IO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Cartera_Facil.View
 {
     internal class ViewFunctions
     {
         Entities2 entities = new Entities2();
+        private string Email;
+        private string Password;
         public FormWindowState WindowState { get; private set; }
+        public string Email1 { get => Email; set => Email = "devevanbermudez@gmail.com"; }
+        public string Password1 { get => Email; set => Password = "eypumntiyjtyhogw"; }
 
         #region //Move the form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -35,6 +40,21 @@ namespace Cartera_Facil.View
                 ob.Image = imagen;
             }
             return ob.Image;
+        }
+
+        public string GenerateRandomCode(int length)//Generar codigo aleatorio
+        {
+            const string characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            Random random = new Random();
+            char[] codeArray = new char[length];
+
+            for (int i = 0; i < length; i++)
+            {
+                codeArray[i] = characters[random.Next(0, characters.Length)];
+            }
+
+            return new string(codeArray);
+        
         }
 
         public Image UploadPhotoByDefault(string route, PictureBox ob)//Cargar foto por defecto
@@ -121,8 +141,38 @@ namespace Cartera_Facil.View
                 (x => x.EMAIL == email);
             if(queryEmail == true)
                    return true;
-            else 
+            else
                 return false;
+        }
+
+        public bool checkData(GunaTextBox identificationNumber, GunaTextBox email, Label identificationNumberInvalid, Label emailInvalid) //comprobacion de datos
+        {
+            string identificarionNumber = identificationNumber.Text;
+            bool identificarionNumberJustNumbers = identificarionNumber.All(char.IsDigit);
+            bool repeatedIdentification = CheckDocumentNumber(identificationNumber);
+            bool repeatedEmail = CheckEmail(email);
+
+            if (identificarionNumberJustNumbers == true)
+            {
+                identificationNumberInvalid.Visible = false;
+                if (repeatedIdentification == true)
+                    identificationNumberInvalid.Visible = true;
+                else
+                    identificationNumberInvalid.Visible = false;
+            }
+            else
+                identificationNumberInvalid.Visible = true;
+
+            if (repeatedEmail == true)
+                emailInvalid.Visible = true;
+            else
+                emailInvalid.Visible = false;
+
+            if ((identificarionNumberJustNumbers == true) && (repeatedIdentification == false) && (repeatedEmail == false))
+                return false;
+            else
+                return true;
+
         }
     }
 }

@@ -33,6 +33,7 @@ namespace Cartera_Facil.Model
         public string PASSWORD { get; set; }
         public string TELEFONO { get; set; }
         public string EMAIL { get; set; }
+        public string HABILITADO { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PAGOS> PAGOS { get; set; }

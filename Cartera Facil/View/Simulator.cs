@@ -185,6 +185,5 @@ namespace Cartera_Facil.View
         {
             CalculateCredit();
         }
-
     }
 }

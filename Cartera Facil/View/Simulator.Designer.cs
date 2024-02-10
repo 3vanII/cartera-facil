@@ -30,7 +30,6 @@
         {
             Guna.UI.WinForms.GunaButton btnsSimulate;
             this.lblTitle = new System.Windows.Forms.Label();
-            this.lblIdentificationNumberInvalid = new System.Windows.Forms.Label();
             this.lblConfirmationAmount = new System.Windows.Forms.Label();
             this.txtAmount = new Guna.UI.WinForms.GunaTextBox();
             this.lblAmount = new System.Windows.Forms.Label();
@@ -41,6 +40,7 @@
             this.lblPaymentMethod = new System.Windows.Forms.Label();
             this.ComboBoxPaymentMethod = new Guna.UI.WinForms.GunaComboBox();
             this.lblValidateNumber = new System.Windows.Forms.Label();
+            this.lblIdentificationNumberInvalid = new System.Windows.Forms.Label();
             btnsSimulate = new Guna.UI.WinForms.GunaButton();
             this.SuspendLayout();
             // 
@@ -58,7 +58,7 @@
             btnsSimulate.ForeColor = System.Drawing.Color.Black;
             btnsSimulate.Image = null;
             btnsSimulate.ImageSize = new System.Drawing.Size(20, 20);
-            btnsSimulate.Location = new System.Drawing.Point(310, 439);
+            btnsSimulate.Location = new System.Drawing.Point(516, 443);
             btnsSimulate.Name = "btnsSimulate";
             btnsSimulate.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             btnsSimulate.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -76,31 +76,19 @@
             // 
             this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 29.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(178, 44);
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 40.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(117, 52);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(400, 44);
+            this.lblTitle.Size = new System.Drawing.Size(543, 63);
             this.lblTitle.TabIndex = 42;
             this.lblTitle.Text = "Simulador de credito";
-            // 
-            // lblIdentificationNumberInvalid
-            // 
-            this.lblIdentificationNumberInvalid.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblIdentificationNumberInvalid.AutoSize = true;
-            this.lblIdentificationNumberInvalid.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdentificationNumberInvalid.ForeColor = System.Drawing.Color.Black;
-            this.lblIdentificationNumberInvalid.Location = new System.Drawing.Point(188, 112);
-            this.lblIdentificationNumberInvalid.Name = "lblIdentificationNumberInvalid";
-            this.lblIdentificationNumberInvalid.Size = new System.Drawing.Size(381, 20);
-            this.lblIdentificationNumberInvalid.TabIndex = 43;
-            this.lblIdentificationNumberInvalid.Text = "Rellena los campos y conoce la información de tu crédito";
             // 
             // lblConfirmationAmount
             // 
             this.lblConfirmationAmount.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblConfirmationAmount.Font = new System.Drawing.Font("Segoe UI Semibold", 14.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConfirmationAmount.ForeColor = System.Drawing.Color.Red;
-            this.lblConfirmationAmount.Location = new System.Drawing.Point(521, 146);
+            this.lblConfirmationAmount.Location = new System.Drawing.Point(627, 155);
             this.lblConfirmationAmount.Name = "lblConfirmationAmount";
             this.lblConfirmationAmount.Size = new System.Drawing.Size(18, 25);
             this.lblConfirmationAmount.TabIndex = 46;
@@ -118,12 +106,12 @@
             this.txtAmount.FocusedBorderColor = System.Drawing.Color.Black;
             this.txtAmount.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAmount.Location = new System.Drawing.Point(310, 175);
+            this.txtAmount.Location = new System.Drawing.Point(228, 183);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.PasswordChar = '\0';
             this.txtAmount.Radius = 10;
             this.txtAmount.SelectedText = "";
-            this.txtAmount.Size = new System.Drawing.Size(230, 32);
+            this.txtAmount.Size = new System.Drawing.Size(417, 32);
             this.txtAmount.TabIndex = 45;
             // 
             // lblAmount
@@ -131,7 +119,7 @@
             this.lblAmount.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblAmount.AutoSize = true;
             this.lblAmount.Font = new System.Drawing.Font("Segoe UI Semibold", 14.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAmount.Location = new System.Drawing.Point(208, 179);
+            this.lblAmount.Location = new System.Drawing.Point(126, 183);
             this.lblAmount.Name = "lblAmount";
             this.lblAmount.Size = new System.Drawing.Size(97, 28);
             this.lblAmount.TabIndex = 44;
@@ -142,7 +130,7 @@
             this.lblTime.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTime.AutoSize = true;
             this.lblTime.Font = new System.Drawing.Font("Segoe UI Semibold", 14.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.Location = new System.Drawing.Point(208, 244);
+            this.lblTime.Location = new System.Drawing.Point(126, 251);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(179, 28);
             this.lblTime.TabIndex = 47;
@@ -162,12 +150,12 @@
             this.gunaNumericTime.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaNumericTime.ForeColor = System.Drawing.Color.Black;
             this.gunaNumericTime.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.gunaNumericTime.Location = new System.Drawing.Point(393, 244);
+            this.gunaNumericTime.Location = new System.Drawing.Point(303, 253);
             this.gunaNumericTime.Maximum = ((long)(9999999));
             this.gunaNumericTime.Minimum = ((long)(1));
             this.gunaNumericTime.Name = "gunaNumericTime";
             this.gunaNumericTime.Radius = 10;
-            this.gunaNumericTime.Size = new System.Drawing.Size(146, 30);
+            this.gunaNumericTime.Size = new System.Drawing.Size(342, 30);
             this.gunaNumericTime.TabIndex = 48;
             this.gunaNumericTime.Value = ((long)(1));
             // 
@@ -182,12 +170,12 @@
             this.gunaNumericInterestRate.ButtonForeColor = System.Drawing.Color.White;
             this.gunaNumericInterestRate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaNumericInterestRate.ForeColor = System.Drawing.Color.Black;
-            this.gunaNumericInterestRate.Location = new System.Drawing.Point(393, 311);
+            this.gunaNumericInterestRate.Location = new System.Drawing.Point(303, 320);
             this.gunaNumericInterestRate.Maximum = ((long)(9999999));
             this.gunaNumericInterestRate.Minimum = ((long)(1));
             this.gunaNumericInterestRate.Name = "gunaNumericInterestRate";
             this.gunaNumericInterestRate.Radius = 10;
-            this.gunaNumericInterestRate.Size = new System.Drawing.Size(146, 30);
+            this.gunaNumericInterestRate.Size = new System.Drawing.Size(342, 30);
             this.gunaNumericInterestRate.TabIndex = 51;
             this.gunaNumericInterestRate.Value = ((long)(1));
             // 
@@ -196,7 +184,7 @@
             this.lblInterestRate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblInterestRate.AutoSize = true;
             this.lblInterestRate.Font = new System.Drawing.Font("Segoe UI Semibold", 14.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInterestRate.Location = new System.Drawing.Point(208, 311);
+            this.lblInterestRate.Location = new System.Drawing.Point(126, 317);
             this.lblInterestRate.Name = "lblInterestRate";
             this.lblInterestRate.Size = new System.Drawing.Size(175, 28);
             this.lblInterestRate.TabIndex = 50;
@@ -207,7 +195,7 @@
             this.lblPaymentMethod.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPaymentMethod.AutoSize = true;
             this.lblPaymentMethod.Font = new System.Drawing.Font("Segoe UI Semibold", 13.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPaymentMethod.Location = new System.Drawing.Point(208, 377);
+            this.lblPaymentMethod.Location = new System.Drawing.Point(126, 388);
             this.lblPaymentMethod.Name = "lblPaymentMethod";
             this.lblPaymentMethod.Size = new System.Drawing.Size(183, 25);
             this.lblPaymentMethod.TabIndex = 54;
@@ -225,12 +213,12 @@
             this.ComboBoxPaymentMethod.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ComboBoxPaymentMethod.ForeColor = System.Drawing.Color.Black;
             this.ComboBoxPaymentMethod.FormattingEnabled = true;
-            this.ComboBoxPaymentMethod.Location = new System.Drawing.Point(393, 377);
+            this.ComboBoxPaymentMethod.Location = new System.Drawing.Point(315, 386);
             this.ComboBoxPaymentMethod.Name = "ComboBoxPaymentMethod";
             this.ComboBoxPaymentMethod.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.ComboBoxPaymentMethod.OnHoverItemForeColor = System.Drawing.Color.White;
             this.ComboBoxPaymentMethod.Radius = 10;
-            this.ComboBoxPaymentMethod.Size = new System.Drawing.Size(146, 30);
+            this.ComboBoxPaymentMethod.Size = new System.Drawing.Size(330, 30);
             this.ComboBoxPaymentMethod.TabIndex = 53;
             // 
             // lblValidateNumber
@@ -239,12 +227,24 @@
             this.lblValidateNumber.AutoSize = true;
             this.lblValidateNumber.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblValidateNumber.ForeColor = System.Drawing.Color.Red;
-            this.lblValidateNumber.Location = new System.Drawing.Point(423, 210);
+            this.lblValidateNumber.Location = new System.Drawing.Point(529, 218);
             this.lblValidateNumber.Name = "lblValidateNumber";
             this.lblValidateNumber.Size = new System.Drawing.Size(116, 17);
             this.lblValidateNumber.TabIndex = 57;
             this.lblValidateNumber.Text = "Valor no aceptado";
             this.lblValidateNumber.Visible = false;
+            // 
+            // lblIdentificationNumberInvalid
+            // 
+            this.lblIdentificationNumberInvalid.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblIdentificationNumberInvalid.AutoSize = true;
+            this.lblIdentificationNumberInvalid.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdentificationNumberInvalid.ForeColor = System.Drawing.Color.Black;
+            this.lblIdentificationNumberInvalid.Location = new System.Drawing.Point(123, 124);
+            this.lblIdentificationNumberInvalid.Name = "lblIdentificationNumberInvalid";
+            this.lblIdentificationNumberInvalid.Size = new System.Drawing.Size(522, 25);
+            this.lblIdentificationNumberInvalid.TabIndex = 43;
+            this.lblIdentificationNumberInvalid.Text = "Rellena los campos y conoce la información de tu crédito";
             // 
             // Simulator
             // 
@@ -275,7 +275,6 @@
         #endregion
 
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Label lblIdentificationNumberInvalid;
         private System.Windows.Forms.Label lblConfirmationAmount;
         private Guna.UI.WinForms.GunaTextBox txtAmount;
         private System.Windows.Forms.Label lblAmount;
@@ -286,5 +285,6 @@
         private System.Windows.Forms.Label lblPaymentMethod;
         private Guna.UI.WinForms.GunaComboBox ComboBoxPaymentMethod;
         private System.Windows.Forms.Label lblValidateNumber;
+        private System.Windows.Forms.Label lblIdentificationNumberInvalid;
     }
 }

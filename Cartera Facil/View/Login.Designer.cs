@@ -31,13 +31,12 @@
             Guna.UI.WinForms.GunaButton btnSingIn;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.txtUser = new System.Windows.Forms.Panel();
+            this.linkLabelCreateUser = new System.Windows.Forms.LinkLabel();
             this.linkLabelRecoverPass = new System.Windows.Forms.LinkLabel();
             this.lblPasswordInvalid = new System.Windows.Forms.Label();
             this.lblUserInvalid = new System.Windows.Forms.Label();
             this.txtPassword = new Guna.UI.WinForms.GunaTextBox();
-            this.lblPassword = new System.Windows.Forms.Label();
             this.tbxUser = new Guna.UI.WinForms.GunaTextBox();
-            this.lblUser = new System.Windows.Forms.Label();
             this.lblSlogan = new System.Windows.Forms.Label();
             this.businessLogo = new Guna.UI.WinForms.GunaPictureBox();
             this.minimizeButton = new System.Windows.Forms.PictureBox();
@@ -63,7 +62,7 @@
             btnSingIn.ForeColor = System.Drawing.Color.Black;
             btnSingIn.Image = null;
             btnSingIn.ImageSize = new System.Drawing.Size(20, 20);
-            btnSingIn.Location = new System.Drawing.Point(35, 493);
+            btnSingIn.Location = new System.Drawing.Point(35, 461);
             btnSingIn.Name = "btnSingIn";
             btnSingIn.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             btnSingIn.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -80,14 +79,13 @@
             // txtUser
             // 
             this.txtUser.BackColor = System.Drawing.SystemColors.Control;
+            this.txtUser.Controls.Add(this.linkLabelCreateUser);
             this.txtUser.Controls.Add(this.linkLabelRecoverPass);
             this.txtUser.Controls.Add(btnSingIn);
             this.txtUser.Controls.Add(this.lblPasswordInvalid);
             this.txtUser.Controls.Add(this.lblUserInvalid);
             this.txtUser.Controls.Add(this.txtPassword);
-            this.txtUser.Controls.Add(this.lblPassword);
             this.txtUser.Controls.Add(this.tbxUser);
-            this.txtUser.Controls.Add(this.lblUser);
             this.txtUser.Controls.Add(this.lblSlogan);
             this.txtUser.Controls.Add(this.businessLogo);
             this.txtUser.Controls.Add(this.minimizeButton);
@@ -95,20 +93,33 @@
             this.txtUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtUser.Location = new System.Drawing.Point(0, 0);
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(385, 603);
+            this.txtUser.Size = new System.Drawing.Size(385, 595);
             this.txtUser.TabIndex = 0;
             this.txtUser.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelContainer_MouseDown);
+            // 
+            // linkLabelCreateUser
+            // 
+            this.linkLabelCreateUser.AutoSize = true;
+            this.linkLabelCreateUser.Font = new System.Drawing.Font("Segoe UI", 10.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelCreateUser.Location = new System.Drawing.Point(155, 519);
+            this.linkLabelCreateUser.Name = "linkLabelCreateUser";
+            this.linkLabelCreateUser.Size = new System.Drawing.Size(76, 20);
+            this.linkLabelCreateUser.TabIndex = 13;
+            this.linkLabelCreateUser.TabStop = true;
+            this.linkLabelCreateUser.Text = "Registrate";
+            this.linkLabelCreateUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.linkLabelCreateUser.UseMnemonic = false;
             // 
             // linkLabelRecoverPass
             // 
             this.linkLabelRecoverPass.AutoSize = true;
             this.linkLabelRecoverPass.Font = new System.Drawing.Font("Segoe UI", 10.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelRecoverPass.Location = new System.Drawing.Point(130, 549);
+            this.linkLabelRecoverPass.Location = new System.Drawing.Point(115, 548);
             this.linkLabelRecoverPass.Name = "linkLabelRecoverPass";
-            this.linkLabelRecoverPass.Size = new System.Drawing.Size(127, 20);
+            this.linkLabelRecoverPass.Size = new System.Drawing.Size(152, 20);
             this.linkLabelRecoverPass.TabIndex = 12;
             this.linkLabelRecoverPass.TabStop = true;
-            this.linkLabelRecoverPass.Text = "Recover Password";
+            this.linkLabelRecoverPass.Text = "Recuperar contraseña";
             this.linkLabelRecoverPass.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelRecoverPass_LinkClicked);
             // 
             // lblPasswordInvalid
@@ -116,7 +127,7 @@
             this.lblPasswordInvalid.AutoSize = true;
             this.lblPasswordInvalid.Font = new System.Drawing.Font("Segoe UI", 12.25F);
             this.lblPasswordInvalid.ForeColor = System.Drawing.Color.Red;
-            this.lblPasswordInvalid.Location = new System.Drawing.Point(216, 451);
+            this.lblPasswordInvalid.Location = new System.Drawing.Point(216, 409);
             this.lblPasswordInvalid.Name = "lblPasswordInvalid";
             this.lblPasswordInvalid.Size = new System.Drawing.Size(134, 23);
             this.lblPasswordInvalid.TabIndex = 10;
@@ -127,7 +138,7 @@
             this.lblUserInvalid.AutoSize = true;
             this.lblUserInvalid.Font = new System.Drawing.Font("Segoe UI", 12.25F);
             this.lblUserInvalid.ForeColor = System.Drawing.Color.Red;
-            this.lblUserInvalid.Location = new System.Drawing.Point(252, 349);
+            this.lblUserInvalid.Location = new System.Drawing.Point(252, 324);
             this.lblUserInvalid.Name = "lblUserInvalid";
             this.lblUserInvalid.Size = new System.Drawing.Size(98, 23);
             this.lblUserInvalid.TabIndex = 9;
@@ -143,7 +154,7 @@
             this.txtPassword.FocusedBorderColor = System.Drawing.Color.Black;
             this.txtPassword.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(35, 403);
+            this.txtPassword.Location = new System.Drawing.Point(35, 361);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '\0';
             this.txtPassword.Radius = 10;
@@ -151,16 +162,6 @@
             this.txtPassword.Size = new System.Drawing.Size(315, 45);
             this.txtPassword.TabIndex = 8;
             this.txtPassword.Text = "myPassword";
-            // 
-            // lblPassword
-            // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(38, 370);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(103, 30);
-            this.lblPassword.TabIndex = 7;
-            this.lblPassword.Text = "Password";
             // 
             // tbxUser
             // 
@@ -172,7 +173,7 @@
             this.tbxUser.FocusedBorderColor = System.Drawing.Color.Black;
             this.tbxUser.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.tbxUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxUser.Location = new System.Drawing.Point(35, 301);
+            this.tbxUser.Location = new System.Drawing.Point(35, 276);
             this.tbxUser.Name = "tbxUser";
             this.tbxUser.PasswordChar = '\0';
             this.tbxUser.Radius = 10;
@@ -181,32 +182,22 @@
             this.tbxUser.TabIndex = 6;
             this.tbxUser.Text = "myEmail@gmail.com";
             // 
-            // lblUser
-            // 
-            this.lblUser.AutoSize = true;
-            this.lblUser.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.Location = new System.Drawing.Point(38, 268);
-            this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(56, 30);
-            this.lblUser.TabIndex = 5;
-            this.lblUser.Text = "User";
-            // 
             // lblSlogan
             // 
             this.lblSlogan.AutoSize = true;
             this.lblSlogan.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSlogan.Location = new System.Drawing.Point(68, 194);
+            this.lblSlogan.Location = new System.Drawing.Point(29, 213);
             this.lblSlogan.Name = "lblSlogan";
-            this.lblSlogan.Size = new System.Drawing.Size(258, 64);
+            this.lblSlogan.Size = new System.Drawing.Size(328, 32);
             this.lblSlogan.TabIndex = 4;
-            this.lblSlogan.Text = "Easy, fast and efficient \r\ncredits";
+            this.lblSlogan.Text = "Easy, fast and efficient credits";
             this.lblSlogan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // businessLogo
             // 
             this.businessLogo.BackColor = System.Drawing.Color.Transparent;
             this.businessLogo.BaseColor = System.Drawing.Color.IndianRed;
-            this.businessLogo.Location = new System.Drawing.Point(123, 35);
+            this.businessLogo.Location = new System.Drawing.Point(123, 46);
             this.businessLogo.Name = "businessLogo";
             this.businessLogo.Radius = 70;
             this.businessLogo.Size = new System.Drawing.Size(140, 140);
@@ -263,7 +254,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(385, 603);
+            this.ClientSize = new System.Drawing.Size(385, 595);
             this.Controls.Add(this.txtUser);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
@@ -290,12 +281,11 @@
         private System.Windows.Forms.PictureBox minimizeButton;
         private Guna.UI.WinForms.GunaPictureBox businessLogo;
         private System.Windows.Forms.Label lblSlogan;
-        private System.Windows.Forms.Label lblUser;
         private Guna.UI.WinForms.GunaTextBox tbxUser;
         private Guna.UI.WinForms.GunaTextBox txtPassword;
-        private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblUserInvalid;
         private System.Windows.Forms.Label lblPasswordInvalid;
         private System.Windows.Forms.LinkLabel linkLabelRecoverPass;
+        private System.Windows.Forms.LinkLabel linkLabelCreateUser;
     }
 }

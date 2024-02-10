@@ -84,27 +84,6 @@ namespace Cartera_Facil.View
                 return false;
         }
 
-        private bool checkData() //comprobacion de datos
-        {
-            string identificarionNumber = txtIdentificationNumber.Text;
-            bool identificarionNumberJustNumbers = identificarionNumber.Any(char.IsDigit);
-            if(( identificarionNumberJustNumbers != true) || (obj.CheckDocumentNumber(txtIdentificationNumber) == true))
-                lblIdentificationNumberInvalid.Visible = true;
-            else
-                lblIdentificationNumberInvalid.Visible= false;
-
-            if (obj.CheckEmail(txtEmail) == true)
-                lblEmailInvalid.Visible = true;
-            else 
-                lblEmailInvalid.Visible= false;
-
-            if((identificarionNumberJustNumbers != false) && (obj.CheckDocumentNumber(txtIdentificationNumber) == false) && (obj.CheckEmail(txtEmail) == false))
-                return false;
-            else 
-                return true;
-
-        }
-
         private USUARIOS CaptureData()
         {
             USUARIOS ob = new USUARIOS();
@@ -115,7 +94,7 @@ namespace Cartera_Facil.View
             ob.APELLIDO = txtSurnames.Text.ToUpper();
             ob.DEPARTAMENTO_ID = (int)ComboBoxDepartaments.SelectedValue;
             ob.MUNICIPIO_ID = (int)ComboBoxCity.SelectedValue;
-            ob.DIRECCION = txtResidenceAddress.Text;
+            ob.DIRECCION = txtResidenceAddress.Text.ToUpper();
             ob.ROL_ID = (int)ComboBoxRol.SelectedValue;
             ob.EMAIL = txtEmail.Text.ToUpper();
             if (ptbhoto != null)
@@ -127,7 +106,7 @@ namespace Cartera_Facil.View
             }
             ob.PASSWORD = txtIdentificationNumber.Text;
             ob.TELEFONO = txtPhone.Text;
-            
+            ob.HABILITADO = "true";
             return ob;
         }
 
@@ -147,7 +126,7 @@ namespace Cartera_Facil.View
         {
             try
             {
-                bool chekingData = checkData();
+                bool chekingData = obj.checkData(txtIdentificationNumber, txtEmail, lblIdentificationNumberInvalid, lblEmailInvalid);
                 bool chekingRequiredFields = CheckRequiredFields();
                 if (chekingData == false && chekingRequiredFields == false)
                 {

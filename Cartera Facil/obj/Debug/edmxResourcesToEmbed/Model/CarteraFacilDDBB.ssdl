@@ -138,6 +138,7 @@
     <Property Name="PASSWORD" Type="varchar" MaxLength="100" />
     <Property Name="TELEFONO" Type="varchar" MaxLength="100" />
     <Property Name="EMAIL" Type="varchar" MaxLength="100" />
+    <Property Name="HABILITADO" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <Association Name="FK_CLIENTES_DEPARTAMENTOS">
     <End Role="DEPARTAMENTOS" Type="Self.DEPARTAMENTOS" Multiplicity="0..1" />
