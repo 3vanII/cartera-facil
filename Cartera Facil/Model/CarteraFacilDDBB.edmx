@@ -140,7 +140,7 @@
           <Property Name="DIRECCION" Type="varchar" MaxLength="225" />
           <Property Name="ROL_ID" Type="int" Nullable="false" />
           <Property Name="FOTO" Type="varbinary(max)" />
-          <Property Name="PASSWORD" Type="varchar" MaxLength="100" />
+          <Property Name="PASSWORD" Type="varchar(max)" Nullable="false" />
           <Property Name="TELEFONO" Type="varchar" MaxLength="100" />
           <Property Name="EMAIL" Type="varchar" MaxLength="100" />
           <Property Name="HABILITADO" Type="varchar" MaxLength="50" Nullable="false" />
@@ -529,7 +529,7 @@
           <Property Name="DIRECCION" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
           <Property Name="ROL_ID" Type="Int32" Nullable="false" />
           <Property Name="FOTO" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="PASSWORD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="Max" FixedLength="false" Nullable="false" Unicode="false" />
           <Property Name="TELEFONO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="PAGOS" Relationship="Self.FK_PAGOS_USUARIOS" FromRole="USUARIOS" ToRole="PAGOS" />

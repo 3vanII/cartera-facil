@@ -30,20 +30,24 @@
         {
             Guna.UI.WinForms.GunaButton btnSingIn;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
-            this.txtUser = new System.Windows.Forms.Panel();
+            this.pnlUser = new System.Windows.Forms.Panel();
+            this.pictureBoxShowPassword = new System.Windows.Forms.PictureBox();
+            this.pictureBoxHidePassword = new System.Windows.Forms.PictureBox();
             this.linkLabelCreateUser = new System.Windows.Forms.LinkLabel();
             this.linkLabelRecoverPass = new System.Windows.Forms.LinkLabel();
             this.lblPasswordInvalid = new System.Windows.Forms.Label();
             this.lblUserInvalid = new System.Windows.Forms.Label();
             this.txtPassword = new Guna.UI.WinForms.GunaTextBox();
-            this.tbxUser = new Guna.UI.WinForms.GunaTextBox();
+            this.txtUser = new Guna.UI.WinForms.GunaTextBox();
             this.lblSlogan = new System.Windows.Forms.Label();
             this.businessLogo = new Guna.UI.WinForms.GunaPictureBox();
             this.minimizeButton = new System.Windows.Forms.PictureBox();
             this.closeButton = new System.Windows.Forms.PictureBox();
             this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
             btnSingIn = new Guna.UI.WinForms.GunaButton();
-            this.txtUser.SuspendLayout();
+            this.pnlUser.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxShowPassword)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHidePassword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.businessLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimizeButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
@@ -76,78 +80,113 @@
             btnSingIn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             btnSingIn.Click += new System.EventHandler(this.btnSingIn_Click);
             // 
-            // txtUser
+            // pnlUser
             // 
-            this.txtUser.BackColor = System.Drawing.SystemColors.Control;
-            this.txtUser.Controls.Add(this.linkLabelCreateUser);
-            this.txtUser.Controls.Add(this.linkLabelRecoverPass);
-            this.txtUser.Controls.Add(btnSingIn);
-            this.txtUser.Controls.Add(this.lblPasswordInvalid);
-            this.txtUser.Controls.Add(this.lblUserInvalid);
-            this.txtUser.Controls.Add(this.txtPassword);
-            this.txtUser.Controls.Add(this.tbxUser);
-            this.txtUser.Controls.Add(this.lblSlogan);
-            this.txtUser.Controls.Add(this.businessLogo);
-            this.txtUser.Controls.Add(this.minimizeButton);
-            this.txtUser.Controls.Add(this.closeButton);
-            this.txtUser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtUser.Location = new System.Drawing.Point(0, 0);
-            this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(385, 595);
-            this.txtUser.TabIndex = 0;
-            this.txtUser.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelContainer_MouseDown);
+            this.pnlUser.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlUser.Controls.Add(this.pictureBoxShowPassword);
+            this.pnlUser.Controls.Add(this.pictureBoxHidePassword);
+            this.pnlUser.Controls.Add(this.linkLabelCreateUser);
+            this.pnlUser.Controls.Add(this.linkLabelRecoverPass);
+            this.pnlUser.Controls.Add(btnSingIn);
+            this.pnlUser.Controls.Add(this.lblPasswordInvalid);
+            this.pnlUser.Controls.Add(this.lblUserInvalid);
+            this.pnlUser.Controls.Add(this.txtPassword);
+            this.pnlUser.Controls.Add(this.txtUser);
+            this.pnlUser.Controls.Add(this.lblSlogan);
+            this.pnlUser.Controls.Add(this.businessLogo);
+            this.pnlUser.Controls.Add(this.minimizeButton);
+            this.pnlUser.Controls.Add(this.closeButton);
+            this.pnlUser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlUser.Location = new System.Drawing.Point(0, 0);
+            this.pnlUser.Name = "pnlUser";
+            this.pnlUser.Size = new System.Drawing.Size(385, 595);
+            this.pnlUser.TabIndex = 0;
+            this.pnlUser.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelContainer_MouseDown);
+            // 
+            // pictureBoxShowPassword
+            // 
+            this.pictureBoxShowPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.pictureBoxShowPassword.Location = new System.Drawing.Point(320, 371);
+            this.pictureBoxShowPassword.Name = "pictureBoxShowPassword";
+            this.pictureBoxShowPassword.Size = new System.Drawing.Size(25, 25);
+            this.pictureBoxShowPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxShowPassword.TabIndex = 15;
+            this.pictureBoxShowPassword.TabStop = false;
+            this.pictureBoxShowPassword.Click += new System.EventHandler(this.pictureBoxShowPassword_Click);
+            // 
+            // pictureBoxHidePassword
+            // 
+            this.pictureBoxHidePassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.pictureBoxHidePassword.Location = new System.Drawing.Point(320, 371);
+            this.pictureBoxHidePassword.Name = "pictureBoxHidePassword";
+            this.pictureBoxHidePassword.Size = new System.Drawing.Size(25, 25);
+            this.pictureBoxHidePassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxHidePassword.TabIndex = 14;
+            this.pictureBoxHidePassword.TabStop = false;
+            this.pictureBoxHidePassword.Visible = false;
+            this.pictureBoxHidePassword.Click += new System.EventHandler(this.pictureBoxHidePassword_Click);
             // 
             // linkLabelCreateUser
             // 
             this.linkLabelCreateUser.AutoSize = true;
             this.linkLabelCreateUser.Font = new System.Drawing.Font("Segoe UI", 10.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelCreateUser.Location = new System.Drawing.Point(155, 519);
+            this.linkLabelCreateUser.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkLabelCreateUser.LinkColor = System.Drawing.Color.Black;
+            this.linkLabelCreateUser.Location = new System.Drawing.Point(155, 516);
             this.linkLabelCreateUser.Name = "linkLabelCreateUser";
             this.linkLabelCreateUser.Size = new System.Drawing.Size(76, 20);
             this.linkLabelCreateUser.TabIndex = 13;
             this.linkLabelCreateUser.TabStop = true;
             this.linkLabelCreateUser.Text = "Registrate";
             this.linkLabelCreateUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.linkLabelCreateUser.UseMnemonic = false;
+            this.linkLabelCreateUser.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelCreateUser_LinkClicked);
+            this.linkLabelCreateUser.MouseEnter += new System.EventHandler(this.linkLabelCreateUser_MouseEnter);
+            this.linkLabelCreateUser.MouseLeave += new System.EventHandler(this.linkLabelCreateUser_MouseLeave);
             // 
             // linkLabelRecoverPass
             // 
             this.linkLabelRecoverPass.AutoSize = true;
             this.linkLabelRecoverPass.Font = new System.Drawing.Font("Segoe UI", 10.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelRecoverPass.Location = new System.Drawing.Point(115, 548);
+            this.linkLabelRecoverPass.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkLabelRecoverPass.LinkColor = System.Drawing.Color.Black;
+            this.linkLabelRecoverPass.Location = new System.Drawing.Point(115, 547);
             this.linkLabelRecoverPass.Name = "linkLabelRecoverPass";
             this.linkLabelRecoverPass.Size = new System.Drawing.Size(152, 20);
             this.linkLabelRecoverPass.TabIndex = 12;
             this.linkLabelRecoverPass.TabStop = true;
             this.linkLabelRecoverPass.Text = "Recuperar contraseña";
             this.linkLabelRecoverPass.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelRecoverPass_LinkClicked);
+            this.linkLabelRecoverPass.MouseEnter += new System.EventHandler(this.linkLabelRecoverPass_MouseEnter);
+            this.linkLabelRecoverPass.MouseLeave += new System.EventHandler(this.linkLabelRecoverPass_MouseLeave);
             // 
             // lblPasswordInvalid
             // 
             this.lblPasswordInvalid.AutoSize = true;
             this.lblPasswordInvalid.Font = new System.Drawing.Font("Segoe UI", 12.25F);
             this.lblPasswordInvalid.ForeColor = System.Drawing.Color.Red;
-            this.lblPasswordInvalid.Location = new System.Drawing.Point(216, 409);
+            this.lblPasswordInvalid.Location = new System.Drawing.Point(172, 409);
             this.lblPasswordInvalid.Name = "lblPasswordInvalid";
-            this.lblPasswordInvalid.Size = new System.Drawing.Size(134, 23);
+            this.lblPasswordInvalid.Size = new System.Drawing.Size(178, 23);
             this.lblPasswordInvalid.TabIndex = 10;
-            this.lblPasswordInvalid.Text = "Password invalid";
+            this.lblPasswordInvalid.Text = "Contraseña incorrecta";
+            this.lblPasswordInvalid.Visible = false;
             // 
             // lblUserInvalid
             // 
             this.lblUserInvalid.AutoSize = true;
             this.lblUserInvalid.Font = new System.Drawing.Font("Segoe UI", 12.25F);
             this.lblUserInvalid.ForeColor = System.Drawing.Color.Red;
-            this.lblUserInvalid.Location = new System.Drawing.Point(252, 324);
+            this.lblUserInvalid.Location = new System.Drawing.Point(218, 324);
             this.lblUserInvalid.Name = "lblUserInvalid";
-            this.lblUserInvalid.Size = new System.Drawing.Size(98, 23);
+            this.lblUserInvalid.Size = new System.Drawing.Size(132, 23);
             this.lblUserInvalid.TabIndex = 9;
-            this.lblUserInvalid.Text = "User invalid";
+            this.lblUserInvalid.Text = "Usuario invalido";
+            this.lblUserInvalid.Visible = false;
             // 
             // txtPassword
             // 
             this.txtPassword.BackColor = System.Drawing.Color.Transparent;
-            this.txtPassword.BaseColor = System.Drawing.Color.White;
+            this.txtPassword.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.txtPassword.BorderColor = System.Drawing.Color.Black;
             this.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPassword.FocusedBaseColor = System.Drawing.Color.White;
@@ -156,41 +195,40 @@
             this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(35, 361);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '\0';
+            this.txtPassword.PasswordChar = '●';
             this.txtPassword.Radius = 10;
             this.txtPassword.SelectedText = "";
             this.txtPassword.Size = new System.Drawing.Size(315, 45);
             this.txtPassword.TabIndex = 8;
-            this.txtPassword.Text = "myPassword";
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
-            // tbxUser
+            // txtUser
             // 
-            this.tbxUser.BackColor = System.Drawing.Color.Transparent;
-            this.tbxUser.BaseColor = System.Drawing.Color.White;
-            this.tbxUser.BorderColor = System.Drawing.Color.Black;
-            this.tbxUser.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbxUser.FocusedBaseColor = System.Drawing.Color.White;
-            this.tbxUser.FocusedBorderColor = System.Drawing.Color.Black;
-            this.tbxUser.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            this.tbxUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxUser.Location = new System.Drawing.Point(35, 276);
-            this.tbxUser.Name = "tbxUser";
-            this.tbxUser.PasswordChar = '\0';
-            this.tbxUser.Radius = 10;
-            this.tbxUser.SelectedText = "";
-            this.tbxUser.Size = new System.Drawing.Size(315, 45);
-            this.tbxUser.TabIndex = 6;
-            this.tbxUser.Text = "myEmail@gmail.com";
+            this.txtUser.BackColor = System.Drawing.Color.Transparent;
+            this.txtUser.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.txtUser.BorderColor = System.Drawing.Color.Black;
+            this.txtUser.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtUser.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtUser.FocusedBorderColor = System.Drawing.Color.Black;
+            this.txtUser.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUser.Location = new System.Drawing.Point(35, 276);
+            this.txtUser.Name = "txtUser";
+            this.txtUser.PasswordChar = '\0';
+            this.txtUser.Radius = 10;
+            this.txtUser.SelectedText = "";
+            this.txtUser.Size = new System.Drawing.Size(315, 45);
+            this.txtUser.TabIndex = 6;
             // 
             // lblSlogan
             // 
             this.lblSlogan.AutoSize = true;
-            this.lblSlogan.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSlogan.Location = new System.Drawing.Point(29, 213);
+            this.lblSlogan.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSlogan.Location = new System.Drawing.Point(36, 212);
             this.lblSlogan.Name = "lblSlogan";
-            this.lblSlogan.Size = new System.Drawing.Size(328, 32);
+            this.lblSlogan.Size = new System.Drawing.Size(311, 25);
             this.lblSlogan.TabIndex = 4;
-            this.lblSlogan.Text = "Easy, fast and efficient credits";
+            this.lblSlogan.Text = "Créditos fáciles, rápidos y eficientes";
             this.lblSlogan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // businessLogo
@@ -255,14 +293,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(385, 595);
-            this.Controls.Add(this.txtUser);
+            this.Controls.Add(this.pnlUser);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Login_Paint);
-            this.txtUser.ResumeLayout(false);
-            this.txtUser.PerformLayout();
+            this.pnlUser.ResumeLayout(false);
+            this.pnlUser.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxShowPassword)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHidePassword)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.businessLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimizeButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).EndInit();
@@ -272,7 +312,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel txtUser;
+        private System.Windows.Forms.Panel pnlUser;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox2;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox3;
@@ -281,11 +321,13 @@
         private System.Windows.Forms.PictureBox minimizeButton;
         private Guna.UI.WinForms.GunaPictureBox businessLogo;
         private System.Windows.Forms.Label lblSlogan;
-        private Guna.UI.WinForms.GunaTextBox tbxUser;
+        private Guna.UI.WinForms.GunaTextBox txtUser;
         private Guna.UI.WinForms.GunaTextBox txtPassword;
         private System.Windows.Forms.Label lblUserInvalid;
         private System.Windows.Forms.Label lblPasswordInvalid;
         private System.Windows.Forms.LinkLabel linkLabelRecoverPass;
         private System.Windows.Forms.LinkLabel linkLabelCreateUser;
+        private System.Windows.Forms.PictureBox pictureBoxShowPassword;
+        private System.Windows.Forms.PictureBox pictureBoxHidePassword;
     }
 }

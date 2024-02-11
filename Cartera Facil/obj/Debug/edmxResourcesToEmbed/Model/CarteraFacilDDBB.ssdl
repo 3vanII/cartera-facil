@@ -135,7 +135,7 @@
     <Property Name="DIRECCION" Type="varchar" MaxLength="225" />
     <Property Name="ROL_ID" Type="int" Nullable="false" />
     <Property Name="FOTO" Type="varbinary(max)" />
-    <Property Name="PASSWORD" Type="varchar" MaxLength="100" />
+    <Property Name="PASSWORD" Type="varchar(max)" Nullable="false" />
     <Property Name="TELEFONO" Type="varchar" MaxLength="100" />
     <Property Name="EMAIL" Type="varchar" MaxLength="100" />
     <Property Name="HABILITADO" Type="varchar" MaxLength="50" Nullable="false" />

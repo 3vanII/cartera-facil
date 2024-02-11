@@ -304,6 +304,7 @@
             this.Name = "CheckIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CheckIn";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CheckIn_FormClosed);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.CheckIn_Paint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CheckIn_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.minimizeButton)).EndInit();

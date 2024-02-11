@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace Cartera_Facil.View
 {
@@ -17,54 +18,18 @@ namespace Cartera_Facil.View
     {
         ViewFunctions obj = new ViewFunctions();
         Entities2 entities = new Entities2();
+        private string email;
+
+        public string Email { get => email; set => email = value; }
+
         public CheckIn()
         {
             InitializeComponent();
             obj.LlenarCombobox(entities.DOCUMENTOS.ToList(), "ID", "DOCUMENTO", ComboBoxDocumentsType);
-            AssignIndicativeText(txtIdentificationNumber, "Número de identificación");
-            AssignIndicativeText(txtEmail, "myEmail@gmail.com");
-            AssignIndicativeText(txtNames, "Nombres");
-            AssignIndicativeText(txtSurnames, "Apellidos");
-        }
-
-        private void AssignIndicativeText(GunaTextBox textBox, string indicativeText)
-        {
-            // Asignar el texto de indicación al Tag del GunaTextBox
-            textBox.Tag = indicativeText;
-            // Asignar el evento Enter al GunaTextBox
-            textBox.Enter += TextBox_Enter;
-            // Asignar el evento Leave al GunaTextBox
-            textBox.Leave += TextBox_Leave;
-            // Mostrar el texto de indicación inicialmente
-            ShowIndicativeText(textBox);
-        }
-
-        private void TextBox_Enter(object sender, EventArgs e)
-        {
-            GunaTextBox textBox = (GunaTextBox)sender;
-            // Cuando el GunaTextBox recibe el foco, limpiar el texto de indicación
-            if (textBox.Text == textBox.Tag.ToString())
-            {
-                textBox.Text = "";
-                textBox.ForeColor = System.Drawing.SystemColors.WindowText; // Color de texto normal
-            }
-        }
-
-        private void TextBox_Leave(object sender, EventArgs e)
-        {
-            GunaTextBox textBox = (GunaTextBox)sender;
-            // Cuando el GunaTextBox pierde el foco, mostrar el texto de indicación si está vacío
-            ShowIndicativeText(textBox);
-        }
-
-        private void ShowIndicativeText(GunaTextBox textBox)
-        {
-            string textoIndicacion = textBox.Tag.ToString();
-            if (string.IsNullOrWhiteSpace(textBox.Text))
-            {
-                textBox.Text = textoIndicacion;
-                textBox.ForeColor = System.Drawing.SystemColors.GrayText; // Color de texto grisáceo
-            }
+            obj.AssignIndicativeText(txtIdentificationNumber, "Número de identificación");
+            obj.AssignIndicativeText(txtEmail, "myEmail@gmail.com");
+            obj.AssignIndicativeText(txtNames, "Nombres");
+            obj.AssignIndicativeText(txtSurnames, "Apellidos");
         }
 
         private void CheckIn_MouseDown(object sender, MouseEventArgs e)
@@ -131,11 +96,11 @@ namespace Cartera_Facil.View
             ob.NOMBRES = txtNames.Text.ToUpper();
             ob.APELLIDO = txtSurnames.Text.ToUpper();
             ob.EMAIL = txtEmail.Text.ToUpper();
-            if(ob.EMAIL == obj.Email1)
+            if(ob.EMAIL == obj.Email)
                 ob.ROL_ID = 100;
             else
                 ob.ROL_ID= 101;
-            ob.PASSWORD = txtIdentificationNumber.Text;
+            ob.PASSWORD = obj.HashPassword(txtIdentificationNumber.Text);
             ob.HABILITADO = "true";
             return ob;
         }
@@ -157,17 +122,30 @@ namespace Cartera_Facil.View
                 bool chekingRequiredFields = CheckRequiredFields();
                 if (chekingData == false && chekingRequiredFields == false)
                 {
-                    DialogResult respuesta = MessageBox.Show("¿Los datos son correctos?",
-                        "Usuarios", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (respuesta == DialogResult.Yes)
+                    Email = txtEmail.Text;
+                    using (var validationEmail = new ConfirmEmail(Email))
                     {
-                        USUARIOS ob = CaptureData();
-                        entities.USUARIOS.Add(ob);
-                        entities.SaveChanges();
-                        ClearText();
-                        MessageBox.Show("Empleado guardado",
-                        "Empleados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if(validationEmail.ShowDialog() == DialogResult.OK)
+                        {
+                            USUARIOS ob = CaptureData();
+                            entities.USUARIOS.Add(ob);
+                            entities.SaveChanges();
+                            ClearText();
+                            MessageBox.Show("Empleado guardado",
+                            "Empleados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
+                    //DialogResult respuesta = MessageBox.Show("¿Los datos son correctos?",
+                    //    "Usuarios", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    //if (respuesta == DialogResult.Yes)
+                    //{
+                    //    USUARIOS ob = CaptureData();
+                    //    entities.USUARIOS.Add(ob);
+                    //    entities.SaveChanges();
+                    //    ClearText();
+                    //    MessageBox.Show("Empleado guardado",
+                    //    "Empleados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //}
                 }
 
             }
@@ -184,7 +162,13 @@ namespace Cartera_Facil.View
 
         private void btnSingUp_Click(object sender, EventArgs e)
         {
-            
+            InsertData();
+        }
+
+        private void CheckIn_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
         }
     }
 }

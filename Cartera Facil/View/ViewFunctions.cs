@@ -4,6 +4,7 @@ using System.Drawing.Drawing2D;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -11,17 +12,22 @@ using Cartera_Facil.Model;
 using Guna.UI.WinForms;
 using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Net.Mail;
+using System.Net.Security;
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Cartera_Facil.View
 {
     internal class ViewFunctions
     {
         Entities2 entities = new Entities2();
-        private string Email;
-        private string Password;
+        MailMessage mEmail = new MailMessage();
+        private string email;
+        private string password;
         public FormWindowState WindowState { get; private set; }
-        public string Email1 { get => Email; set => Email = "devevanbermudez@gmail.com"; }
-        public string Password1 { get => Email; set => Password = "eypumntiyjtyhogw"; }
+        public string Email { get => "devevanbermudez@gmail.com"; set => email = value; }
+        public string Password { get => "eypumntiyjtyhogw"; set => password = value; }
 
         #region //Move the form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -29,6 +35,65 @@ namespace Cartera_Facil.View
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         public extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         #endregion
+
+        #region//LLenado de txtbox por defecto
+        public void AssignIndicativeText(GunaTextBox textBox, string indicativeText)
+        {
+            // Asignar el texto de indicación al Tag del GunaTextBox
+            textBox.Tag = indicativeText;
+            // Asignar el evento Enter al GunaTextBox
+            textBox.Enter += TextBox_Enter;
+            // Asignar el evento Leave al GunaTextBox
+            textBox.Leave += TextBox_Leave;
+            // Mostrar el texto de indicación inicialmente
+            ShowIndicativeText(textBox);
+        }
+
+        private void TextBox_Enter(object sender, EventArgs e)
+        {
+            GunaTextBox textBox = (GunaTextBox)sender;
+            // Cuando el GunaTextBox recibe el foco, limpiar el texto de indicación
+            if (textBox.Text == textBox.Tag.ToString())
+            {
+                textBox.Text = "";
+                textBox.ForeColor = System.Drawing.SystemColors.WindowText; // Color de texto normal
+            }
+        }
+
+        private void TextBox_Leave(object sender, EventArgs e)
+        {
+            GunaTextBox textBox = (GunaTextBox)sender;
+            // Cuando el GunaTextBox pierde el foco, mostrar el texto de indicación si está vacío
+            ShowIndicativeText(textBox);
+        }
+
+        private void ShowIndicativeText(GunaTextBox textBox)
+        {
+            string textoIndicacion = textBox.Tag.ToString();
+            if (string.IsNullOrWhiteSpace(textBox.Text))
+            {
+                textBox.Text = textoIndicacion;
+                textBox.ForeColor = System.Drawing.SystemColors.GrayText; // Color de texto grisáceo
+            }
+        }
+        #endregion
+
+        public string HashPassword(string password)
+        {
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                // Convertir la contraseña en un array de bytes
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+                // Convertir los bytes en una cadena hexadecimal
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
+        }//Encriptar COntraseña
 
         public Image UploadImage(PictureBox ob)//Cargar Imagen
         {
@@ -42,20 +107,60 @@ namespace Cartera_Facil.View
             return ob.Image;
         }
 
-        public string GenerateRandomCode(int length)//Generar codigo aleatorio
+        public string GenerateRandomCode()
         {
-            const string characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            Random random = new Random();
-            char[] codeArray = new char[length];
+            Random rnd = new Random(DateTime.Now.Millisecond);
+            string nuevaCode = Convert.ToString(rnd.Next(100000, 999999));
+            return nuevaCode;
+        }//Generar numero aleatorio
 
-            for (int i = 0; i < length; i++)
+        public void ComposeEmail(string recipientEmail, string code)
+        {
+            try
             {
-                codeArray[i] = characters[random.Next(0, characters.Length)];
+                mEmail.From = new MailAddress(Email, "Cartera Facil", System.Text.Encoding.UTF8);
+                mEmail.To.Add(recipientEmail);
+                mEmail.Subject = "Codigo de validacion";
+                mEmail.Body = $"Tu codigo de validacion es: {code}";
+                mEmail.IsBodyHtml = true;
+                mEmail.Priority = MailPriority.High;
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }//llenar email
 
-            return new string(codeArray);
-        
-        }
+        public void Enviar()
+        {
+            try
+            {
+                using (SmtpClient smtp = new SmtpClient())
+                {
+                    smtp.Host = "smtp.gmail.com";
+                    smtp.UseDefaultCredentials = false;
+                    smtp.EnableSsl = true;
+                    smtp.Port = 587;
+                    smtp.Credentials = new NetworkCredential(Email, Password);
+                    smtp.Timeout = 30000;
+
+                    // Importante: En un entorno de producción, deberías validar el certificado del servidor de correo
+                    ServicePointManager.ServerCertificateValidationCallback = delegate (object s, X509Certificate certificate,
+                        X509Chain chain, SslPolicyErrors errors)
+                    { return true; };
+
+                    smtp.Send(mEmail);
+                }
+            }
+            catch (SmtpException ex)
+            {
+                MessageBox.Show($"Error SMTP: {ex.StatusCode} - {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error general: {ex.Message}");
+            }
+        }//Enviar Email
 
         public Image UploadPhotoByDefault(string route, PictureBox ob)//Cargar foto por defecto
         {
@@ -143,7 +248,7 @@ namespace Cartera_Facil.View
                    return true;
             else
                 return false;
-        }
+        }//Comprobar Email
 
         public bool checkData(GunaTextBox identificationNumber, GunaTextBox email, Label identificationNumberInvalid, Label emailInvalid) //comprobacion de datos
         {
@@ -152,7 +257,7 @@ namespace Cartera_Facil.View
             bool repeatedIdentification = CheckDocumentNumber(identificationNumber);
             bool repeatedEmail = CheckEmail(email);
 
-            if (identificarionNumberJustNumbers == true)
+            if (identificarionNumberJustNumbers == true || identificarionNumber == "Número de identificación")
             {
                 identificationNumberInvalid.Visible = false;
                 if (repeatedIdentification == true)

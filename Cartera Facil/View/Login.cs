@@ -1,10 +1,13 @@
-﻿using System;
+﻿using Cartera_Facil.Model;
+using Guna.UI.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +34,9 @@ namespace Cartera_Facil.View
             InitializeComponent();
             this.Padding = new Padding(2);
             this.BackColor = Color.FromArgb(255, 255, 255);
+            view.AssignIndicativeText(txtUser, "myUser@dominio.com");
+            view.AssignIndicativeText(txtPassword, "myPassword");
+            businessLogo.Select();
         }
 
         private void panelContainer_MouseDown(object sender, MouseEventArgs e)
@@ -46,7 +52,7 @@ namespace Cartera_Facil.View
 
         private void closeButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void minimizeButton_Click(object sender, EventArgs e)
@@ -56,13 +62,97 @@ namespace Cartera_Facil.View
 
         private void btnSingIn_Click(object sender, EventArgs e)
         {
-            
+            var (usuario, credencialesValidas) = ConfirmationCredentials(txtUser, txtPassword, lblUserInvalid, lblPasswordInvalid);
+            if (credencialesValidas)
+            {
+                this.Hide();
+                MainWindow main = new MainWindow();
+                main.FormClosed += (s, args) => this.Close();
+                main.Show();
+            }
         }
 
         private void linkLabelRecoverPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             RecoverPassword recoverPassword = new RecoverPassword();
             recoverPassword.ShowDialog();
+        }
+
+        private void linkLabelCreateUser_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            CheckIn check = new CheckIn();
+            this.Hide();
+            check.Show();
+        }
+
+        private void linkLabelCreateUser_MouseEnter(object sender, EventArgs e)
+        {
+            linkLabelCreateUser.LinkColor = Color.Blue;
+        }
+
+        private void linkLabelCreateUser_MouseLeave(object sender, EventArgs e)
+        {
+            linkLabelCreateUser.LinkColor = Color.Black;
+        }
+
+        private void linkLabelRecoverPass_MouseEnter(object sender, EventArgs e)
+        {
+            linkLabelRecoverPass.LinkColor = Color.Blue;
+        }
+
+        private void linkLabelRecoverPass_MouseLeave(object sender, EventArgs e)
+        {
+            linkLabelRecoverPass.LinkColor = Color.Black;
+        }
+
+        private void pictureBoxShowPassword_Click(object sender, EventArgs e)
+        {
+            pictureBoxShowPassword.Visible = false;
+            pictureBoxHidePassword.Visible = true;
+            txtPassword.UseSystemPasswordChar = false;
+            txtPassword.PasswordChar = '\0';
+        }
+
+        private void pictureBoxHidePassword_Click(object sender, EventArgs e)
+        {
+            pictureBoxHidePassword.Visible=false;
+            pictureBoxShowPassword.Visible=true;
+            txtPassword.UseSystemPasswordChar = true;
+            txtPassword.PasswordChar = '*';
+        }
+
+        public static (USUARIOS, bool) ConfirmationCredentials(GunaTextBox user, GunaTextBox password, Label userInvalid, Label passInvalid)
+        {
+            ViewFunctions obj = new ViewFunctions();
+            bool validateUser = obj.CheckEmail(user);
+            string passwordEncript = obj.HashPassword(password.Text);
+            bool credentialsValid = false;
+            USUARIOS users = null;
+            if (validateUser)
+            {
+                userInvalid.Visible = false;
+                using (Entities2 db = new Entities2())
+                {
+                    users = db.USUARIOS
+                        .Where(u => u.EMAIL == user.Text.ToUpper() && u.PASSWORD == passwordEncript)
+                        .FirstOrDefault();
+                    if(users == null)
+                    {
+                        passInvalid.Visible = true;
+                    }
+                    else
+                    {
+                        passInvalid.Visible = false;
+                        credentialsValid = true;
+                    }
+                }
+
+            }
+            else
+            {
+                userInvalid.Visible = true;
+            }
+            return (users, credentialsValid);
         }
     }
 }

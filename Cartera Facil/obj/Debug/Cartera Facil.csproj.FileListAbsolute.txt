@@ -56,3 +56,4 @@ C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\bin\Debug\System.
 C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\bin\Debug\System.ValueTuple.xml
 C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\obj\Debug\Cartera_Facil.View.CheckIn.resources
+C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\obj\Debug\Cartera_Facil.View.ConfirmEmail.resources
