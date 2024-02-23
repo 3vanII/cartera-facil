@@ -218,11 +218,12 @@ namespace Cartera_Facil.View
             }
         }
 
-        public object LlenarCombobox<E>(List<E> lista, string valueMember, string displayMember, ComboBox ob)
+        public object LlenarCombobox<E>(List<E> lista, string valueMember, string displayMember, ComboBox ob, string nameCombobox)
         {
             ob.DataSource = lista;
             ob.DisplayMember = displayMember;
             ob.ValueMember = valueMember;
+            ob.Text = nameCombobox;
             ob.SelectedIndex = 0;
             ob.MaxDropDownItems = 5;
             return ob.SelectedValue;
@@ -241,7 +242,7 @@ namespace Cartera_Facil.View
 
         public bool CheckEmail(GunaTextBox identificationEmail)
         {
-            string email = identificationEmail.Text;
+            string email = identificationEmail.Text.ToUpper();
             var queryEmail = entities.USUARIOS.Any
                 (x => x.EMAIL == email);
             if(queryEmail == true)

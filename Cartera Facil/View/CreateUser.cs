@@ -27,10 +27,15 @@ namespace Cartera_Facil.View
 
         private void CargarComboBox()
         {
-            obj.LlenarCombobox(entities.DOCUMENTOS.ToList(), "ID", "DOCUMENTO", ComboBoxDocumentsType);
-            obj.LlenarCombobox(entities.ROLES.ToList(), "ID", "CARGO", ComboBoxRol);
-            obj.LlenarCombobox(entities.DEPARTAMENTOS.OrderBy(dpto =>dpto.DEPARTAMENTO).ToList(), "ID", "DEPARTAMENTO", ComboBoxDepartaments);
-            
+            obj.LlenarCombobox(entities.DOCUMENTOS.ToList(), "ID", "DOCUMENTO", ComboBoxDocumentsType, "Tipo de documento");
+            obj.LlenarCombobox(entities.ROLES.ToList(), "ID", "CARGO", ComboBoxRol, "Cargo");
+            obj.LlenarCombobox(entities.DEPARTAMENTOS.OrderBy(dpto =>dpto.DEPARTAMENTO).ToList(), "ID", "DEPARTAMENTO", ComboBoxDepartaments, "Departamento");
+            obj.AssignIndicativeText(txtIdentificationNumber, "Número de documento");
+            obj.AssignIndicativeText(txtNames, "Nombres");
+            obj.AssignIndicativeText(txtSurnames, "Apellidos");
+            obj.AssignIndicativeText(txtEmail, "MyEmail@dominio.com");
+            obj.AssignIndicativeText(txtPhone, "Telefono");
+            obj.AssignIndicativeText(txtResidenceAddress, "Direccion");
         }
 
         private void ComboBoxDepartaments_SelectedIndexChanged(object sender, EventArgs e)
@@ -38,7 +43,7 @@ namespace Cartera_Facil.View
             obj.LlenarCombobox(entities.MUNICIPIOS
                     .Where(m => m.DEPARTAMENTO_ID == ((DEPARTAMENTOS)ComboBoxDepartaments.SelectedItem).ID)
                     .OrderBy(m => m.MUNICIPIO)
-                    .ToList(), "ID", "MUNICIPIO", ComboBoxCity);
+                    .ToList(), "ID", "MUNICIPIO", ComboBoxCity, "Municipios");
         }
 
         private bool CheckRequiredFields() //comprobar campos obligatorios

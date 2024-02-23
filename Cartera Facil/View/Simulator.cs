@@ -48,7 +48,7 @@ namespace Cartera_Facil.View
         public Simulator()
         {
             InitializeComponent();
-            obj.LlenarCombobox(entities.MODALIDAD_PAGO.ToList(), "ID", "MODALIDAD", ComboBoxPaymentMethod);
+            obj.LlenarCombobox(entities.MODALIDAD_PAGO.ToList(), "ID", "MODALIDAD", ComboBoxPaymentMethod, "Modalidad de pago");
             
         }
 

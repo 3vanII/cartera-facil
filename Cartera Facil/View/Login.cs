@@ -19,6 +19,7 @@ namespace Cartera_Facil.View
     public partial class Login : Form
     {
         ViewFunctions view = new ViewFunctions();
+        Color colorOriginal = Color.FromArgb(217, 217, 217);
         protected override CreateParams CreateParams
         {
             get

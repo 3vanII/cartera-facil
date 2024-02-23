@@ -25,7 +25,7 @@ namespace Cartera_Facil.View
         public CheckIn()
         {
             InitializeComponent();
-            obj.LlenarCombobox(entities.DOCUMENTOS.ToList(), "ID", "DOCUMENTO", ComboBoxDocumentsType);
+            obj.LlenarCombobox(entities.DOCUMENTOS.ToList(), "ID", "DOCUMENTO", ComboBoxDocumentsType, "Tipo de documento");
             obj.AssignIndicativeText(txtIdentificationNumber, "Número de identificación");
             obj.AssignIndicativeText(txtEmail, "myEmail@gmail.com");
             obj.AssignIndicativeText(txtNames, "Nombres");
@@ -111,7 +111,7 @@ namespace Cartera_Facil.View
             txtNames.Text = string.Empty;
             txtSurnames.Text = string.Empty;
             txtEmail.Text = string.Empty;
-            obj.LlenarCombobox(entities.DOCUMENTOS.ToList(), "ID", "DOCUMENTO", ComboBoxDocumentsType);
+            obj.LlenarCombobox(entities.DOCUMENTOS.ToList(), "ID", "DOCUMENTO", ComboBoxDocumentsType, "Tipo de documento");
         }
 
         private void InsertData()
@@ -135,17 +135,6 @@ namespace Cartera_Facil.View
                             "Empleados", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
-                    //DialogResult respuesta = MessageBox.Show("¿Los datos son correctos?",
-                    //    "Usuarios", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    //if (respuesta == DialogResult.Yes)
-                    //{
-                    //    USUARIOS ob = CaptureData();
-                    //    entities.USUARIOS.Add(ob);
-                    //    entities.SaveChanges();
-                    //    ClearText();
-                    //    MessageBox.Show("Empleado guardado",
-                    //    "Empleados", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //}
                 }
 
             }

@@ -105,22 +105,24 @@
             // 
             // pictureBoxShowPassword
             // 
-            this.pictureBoxShowPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.pictureBoxShowPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(157)))), ((int)(((byte)(241)))));
+            this.pictureBoxShowPassword.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxShowPassword.Image")));
             this.pictureBoxShowPassword.Location = new System.Drawing.Point(320, 371);
             this.pictureBoxShowPassword.Name = "pictureBoxShowPassword";
             this.pictureBoxShowPassword.Size = new System.Drawing.Size(25, 25);
-            this.pictureBoxShowPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxShowPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxShowPassword.TabIndex = 15;
             this.pictureBoxShowPassword.TabStop = false;
             this.pictureBoxShowPassword.Click += new System.EventHandler(this.pictureBoxShowPassword_Click);
             // 
             // pictureBoxHidePassword
             // 
-            this.pictureBoxHidePassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.pictureBoxHidePassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.pictureBoxHidePassword.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxHidePassword.Image")));
             this.pictureBoxHidePassword.Location = new System.Drawing.Point(320, 371);
             this.pictureBoxHidePassword.Name = "pictureBoxHidePassword";
             this.pictureBoxHidePassword.Size = new System.Drawing.Size(25, 25);
-            this.pictureBoxHidePassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxHidePassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxHidePassword.TabIndex = 14;
             this.pictureBoxHidePassword.TabStop = false;
             this.pictureBoxHidePassword.Visible = false;
@@ -245,7 +247,8 @@
             // 
             // minimizeButton
             // 
-            this.minimizeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.minimizeButton.BackColor = System.Drawing.Color.Transparent;
+            this.minimizeButton.Image = ((System.Drawing.Image)(resources.GetObject("minimizeButton.Image")));
             this.minimizeButton.Location = new System.Drawing.Point(320, 6);
             this.minimizeButton.Name = "minimizeButton";
             this.minimizeButton.Size = new System.Drawing.Size(25, 25);
@@ -256,7 +259,8 @@
             // 
             // closeButton
             // 
-            this.closeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.closeButton.BackColor = System.Drawing.Color.Transparent;
+            this.closeButton.Image = ((System.Drawing.Image)(resources.GetObject("closeButton.Image")));
             this.closeButton.Location = new System.Drawing.Point(351, 6);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(25, 25);
