@@ -17,7 +17,7 @@ namespace Cartera_Facil.View
     public partial class CheckIn : Form
     {
         ViewFunctions obj = new ViewFunctions();
-        Entities2 entities = new Entities2();
+        Entities3 entities = new Entities3();
         private string email;
 
         public string Email { get => email; set => email = value; }
@@ -97,9 +97,9 @@ namespace Cartera_Facil.View
             ob.APELLIDO = txtSurnames.Text.ToUpper();
             ob.EMAIL = txtEmail.Text.ToUpper();
             if(ob.EMAIL == obj.Email)
-                ob.ROL_ID = 100;
+                ob.CARGO_ID = 100;
             else
-                ob.ROL_ID= 101;
+                ob.CARGO_ID= 101;
             ob.PASSWORD = obj.HashPassword(txtIdentificationNumber.Text);
             ob.HABILITADO = "true";
             return ob;

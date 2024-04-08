@@ -21,12 +21,12 @@ namespace Cartera_Facil.View
 {
     internal class ViewFunctions
     {
-        Entities2 entities = new Entities2();
+        Entities3 entities = new Entities3();
         MailMessage mEmail = new MailMessage();
         private string email;
         private string password;
         public FormWindowState WindowState { get; private set; }
-        public string Email { get => "devevanbermudez@gmail.com"; set => email = value; }
+        public string Email { get => "DEVEVANBERMUDEZ@GMAIL.COM"; set => email = value; }
         public string Password { get => "eypumntiyjtyhogw"; set => password = value; }
 
         #region //Move the form
@@ -218,15 +218,14 @@ namespace Cartera_Facil.View
             }
         }
 
-        public object LlenarCombobox<E>(List<E> lista, string valueMember, string displayMember, ComboBox ob, string nameCombobox)
+        public void LlenarCombobox<E>(List<E> lista, string valueMember, string displayMember, ComboBox ob, string nameCombobox)
         {
-            ob.DataSource = lista;
             ob.DisplayMember = displayMember;
             ob.ValueMember = valueMember;
-            ob.Text = nameCombobox;
-            ob.SelectedIndex = 0;
+            ob.DataSource = lista;
             ob.MaxDropDownItems = 5;
-            return ob.SelectedValue;
+            ob.Text = nameCombobox;
+            ob.Refresh();
         }
 
         public bool CheckDocumentNumber(GunaTextBox identificationNumber) //comprobar numero de documento
@@ -280,5 +279,23 @@ namespace Cartera_Facil.View
                 return true;
 
         }
+
+        public List<object> GetSales(string date) //Llenar datagred
+        {
+            return (from empleado in entities.USUARIOS
+                    where empleado.NOMBRES.StartsWith(date) || empleado.ID.StartsWith(date)
+                    join cargo in entities.CARGOS on empleado.CARGO_ID equals cargo.ID
+                    select new
+                    {
+                        Identificacion = empleado.ID,
+                        Nombre = empleado.NOMBRES,
+                        Apellido = empleado.APELLIDO,
+                        Cargo = cargo.CARGO,
+                        Telefono = empleado.TELEFONO,
+                        Email = empleado.EMAIL
+                    }).ToList<object>();
+        }
+
+       
     }
 }

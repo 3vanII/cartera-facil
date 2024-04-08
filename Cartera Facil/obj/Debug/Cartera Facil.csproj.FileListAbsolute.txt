@@ -9,7 +9,6 @@ C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\bin\Debug\Cartera
 C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\obj\Debug\Cartera Facil.exe
 C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\obj\Debug\Cartera Facil.pdb
 C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\bin\Debug\Guna.UI.dll
-C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\obj\Debug\Cartera Facil.csproj.CopyComplete
 C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\bin\Debug\Bunifu_UI_v1.52 (1).dll
 C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\obj\Debug\Cartera_Facil.View.RecoverPassword.resources
 C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\obj\Debug\Cartera_Facil.View.MainWindow.resources
@@ -58,3 +57,5 @@ C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\bin\Debug\System.
 C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\obj\Debug\Cartera_Facil.View.CheckIn.resources
 C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\obj\Debug\Cartera_Facil.View.ConfirmEmail.resources
 C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\obj\Debug\Cartera_Facil.View.ChangePassword.resources
+C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\obj\Debug\Cartera_Facil.View.Users.resources
+C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\obj\Debug\Cartera .3A988B4B.Up2Date

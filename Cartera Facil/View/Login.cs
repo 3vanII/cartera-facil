@@ -128,16 +128,16 @@ namespace Cartera_Facil.View
             bool validateUser = obj.CheckEmail(user);
             string passwordEncript = obj.HashPassword(password.Text);
             bool credentialsValid = false;
-            USUARIOS users = null;
+            USUARIOS authenticatedUser = null;
             if (validateUser)
             {
                 userInvalid.Visible = false;
-                using (Entities2 db = new Entities2())
+                using (Entities3 db = new Entities3())
                 {
-                    users = db.USUARIOS
-                        .Where(u => u.EMAIL == user.Text.ToUpper() && u.PASSWORD == passwordEncript)
+                    authenticatedUser = db.USUARIOS
+                        .Where(u => u.EMAIL == user.Text.ToUpper() && u.PASSWORD == passwordEncript && u.HABILITADO == "true")
                         .FirstOrDefault();
-                    if(users == null)
+                    if(authenticatedUser == null)
                     {
                         passInvalid.Visible = true;
                     }
@@ -145,6 +145,13 @@ namespace Cartera_Facil.View
                     {
                         passInvalid.Visible = false;
                         credentialsValid = true;
+                        AuthenticatedUser.ID = authenticatedUser.ID;
+                        AuthenticatedUser.NOMBRES = authenticatedUser.NOMBRES;
+                        AuthenticatedUser.APELLIDO = authenticatedUser.APELLIDO;
+                        AuthenticatedUser.CARGO_ID = authenticatedUser.CARGO_ID;
+                        AuthenticatedUser.FOTO = authenticatedUser.FOTO;
+                        AuthenticatedUser.EMAIL = authenticatedUser.EMAIL;
+                        AuthenticatedUser.HABILITADO = authenticatedUser.HABILITADO;
                     }
                 }
 
@@ -153,7 +160,7 @@ namespace Cartera_Facil.View
             {
                 userInvalid.Visible = true;
             }
-            return (users, credentialsValid);
+            return (authenticatedUser, credentialsValid);
         }
     }
 }

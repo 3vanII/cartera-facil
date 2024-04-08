@@ -20,7 +20,7 @@ namespace Cartera_Facil.View
     public partial class Simulator : Form
     {
         ViewFunctions obj = new ViewFunctions();
-        Entities2 entities = new Entities2();
+        Entities3 entities = new Entities3();
         private int capital;
         private int interestRate;
         private int time;

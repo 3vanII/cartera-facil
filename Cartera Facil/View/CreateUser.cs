@@ -17,20 +17,13 @@ namespace Cartera_Facil.View
     public partial class CreateUser : Form
     {
         ViewFunctions obj = new ViewFunctions();
-        Entities2 entities = new Entities2();
+        Entities3 entities = new Entities3();
         private string DefailPhoto = "C:/Users/nikol/Documents/proyectos/Cartera Facil/Cartera Facil/Img/agregar-usuario.png";
         public CreateUser()
         {
             InitializeComponent();
             CargarComboBox();
-        }
-
-        private void CargarComboBox()
-        {
-            obj.LlenarCombobox(entities.DOCUMENTOS.ToList(), "ID", "DOCUMENTO", ComboBoxDocumentsType, "Tipo de documento");
-            obj.LlenarCombobox(entities.ROLES.ToList(), "ID", "CARGO", ComboBoxRol, "Cargo");
-            obj.LlenarCombobox(entities.DEPARTAMENTOS.OrderBy(dpto =>dpto.DEPARTAMENTO).ToList(), "ID", "DEPARTAMENTO", ComboBoxDepartaments, "Departamento");
-            obj.AssignIndicativeText(txtIdentificationNumber, "Número de documento");
+            obj.AssignIndicativeText(txtIdentificationNumber, "Número de identificación");
             obj.AssignIndicativeText(txtNames, "Nombres");
             obj.AssignIndicativeText(txtSurnames, "Apellidos");
             obj.AssignIndicativeText(txtEmail, "MyEmail@dominio.com");
@@ -38,53 +31,66 @@ namespace Cartera_Facil.View
             obj.AssignIndicativeText(txtResidenceAddress, "Direccion");
         }
 
-        private void ComboBoxDepartaments_SelectedIndexChanged(object sender, EventArgs e)
+        private void CargarComboBox()
         {
-            obj.LlenarCombobox(entities.MUNICIPIOS
-                    .Where(m => m.DEPARTAMENTO_ID == ((DEPARTAMENTOS)ComboBoxDepartaments.SelectedItem).ID)
-                    .OrderBy(m => m.MUNICIPIO)
-                    .ToList(), "ID", "MUNICIPIO", ComboBoxCity, "Municipios");
+            obj.LlenarCombobox(entities.DOCUMENTOS.ToList(), "ID", "DOCUMENTO", ComboBoxDocumentsType, "Tipo de documento");
+            obj.LlenarCombobox(entities.ROLES.ToList(), "ID", "ROL", ComboBoxRol, "Cargo");
+            obj.LlenarCombobox(entities.DEPARTAMENTOS.OrderBy(dpto => dpto.DEPARTAMENTO).ToList(), "ID", "DEPARTAMENTO", ComboBoxDepartaments, "Departamento");
+        }
+
+        private void ComboBoxDepartaments_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (ComboBoxDepartaments.SelectedItem != null)
+            {
+                obj.LlenarCombobox(entities.MUNICIPIOS
+                        .Where(m => m.DEPARTAMENTO_ID == ((DEPARTAMENTOS)ComboBoxDepartaments.SelectedItem).ID)
+                        .OrderBy(m => m.MUNICIPIO)
+                        .ToList(), "ID", "MUNICIPIO", ComboBoxCity, "Municipios");
+            }
         }
 
         private bool CheckRequiredFields() //comprobar campos obligatorios
         {
-            if (txtIdentificationNumber.Text == string.Empty)
+            if (txtIdentificationNumber.Text == string.Empty || txtIdentificationNumber.Text == "Número de identificación")
                 lblConfirmationIdentificationNumber.Visible = true;
             else
                 lblConfirmationIdentificationNumber.Visible = false;
       
-            if (txtNames.Text == string.Empty)
+            if (txtNames.Text == string.Empty || txtNames.Text == "Nombres")
                 lblConfirmationNames.Visible = true;
             else
                 lblConfirmationNames.Visible = false;
 
-            if (txtSurnames.Text == string.Empty)
+            if (txtSurnames.Text == string.Empty || txtSurnames.Text == "Apellidos")
                 lblConfirmationSurnames.Visible = true;
             else
                 lblConfirmationSurnames.Visible= false;
 
-            if (txtResidenceAddress.Text == string.Empty)
+            if (txtResidenceAddress.Text == string.Empty || txtResidenceAddress.Text == "Direccion")
                 lblConfirmationResidenceAddress.Visible = true;
             else
                 lblConfirmationResidenceAddress.Visible= false;
 
-            if (txtPhone.Text == string.Empty)
+            if (txtPhone.Text == string.Empty || txtPhone.Text == "Telefono")
                 lblConfirmationPhone.Visible = true;
             else
                 lblConfirmationPhone.Visible= false;
 
-            if (txtEmail.Text == string.Empty)  
+            if (txtEmail.Text == string.Empty || txtEmail.Text == "MyEmail@dominio.com")  
                 lblConfirmationEmail.Visible = true;
             else
                 lblConfirmationEmail.Visible= false;
 
-            if((txtIdentificationNumber.Text == string.Empty) || (txtNames.Text == string.Empty) || (txtSurnames.Text == string.Empty) 
-                || (txtResidenceAddress.Text == string.Empty) || (txtPhone.Text == string.Empty)
-                || (txtEmail.Text == string.Empty))
-            {
-                MessageBox.Show("Faltan datos por llenar");
-                return true;
-            }
+            if((txtIdentificationNumber.Text == string.Empty || txtIdentificationNumber.Text == "Número de identificación") || 
+                (txtNames.Text == string.Empty || txtNames.Text == "Nombres") || 
+                (txtSurnames.Text == string.Empty || txtSurnames.Text == "Apellidos") || 
+                (txtResidenceAddress.Text == string.Empty || txtResidenceAddress.Text == "Direccion") || 
+                (txtPhone.Text == string.Empty || txtPhone.Text == "Telefono") || 
+                (txtEmail.Text == string.Empty || txtEmail.Text == "MyEmail@dominio.com"))
+                {
+                    MessageBox.Show("Faltan datos por llenar");
+                    return true;
+                }
             else
                 return false;
         }
@@ -100,7 +106,7 @@ namespace Cartera_Facil.View
             ob.DEPARTAMENTO_ID = (int)ComboBoxDepartaments.SelectedValue;
             ob.MUNICIPIO_ID = (int)ComboBoxCity.SelectedValue;
             ob.DIRECCION = txtResidenceAddress.Text.ToUpper();
-            ob.ROL_ID = (int)ComboBoxRol.SelectedValue;
+            ob.CARGO_ID = (int)ComboBoxRol.SelectedValue;
             ob.EMAIL = txtEmail.Text.ToUpper();
             if (ptbhoto != null)
                 ob.FOTO = ViewFunctions.Image2Byte(ptbhoto.Image);
@@ -160,20 +166,21 @@ namespace Cartera_Facil.View
             }
         }
 
-        private void btnCreate_Click_1(object sender, EventArgs e)
+        private void btnCreate_Click(object sender, EventArgs e)
         {
             InsertData();
         }
 
-        private void ptbhoto_Click(object sender, EventArgs e)
+        private void btnCancel_Click_1(object sender, EventArgs e)
+        {
+            ClearText();
+        }
+
+        private void ptbhoto_Click_1(object sender, EventArgs e)
         {
             obj.UploadImage(ptbhoto);
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            ClearText();
-        }
     }
 
 }

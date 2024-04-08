@@ -28,17 +28,17 @@ namespace Cartera_Facil.Model
         public Nullable<int> DEPARTAMENTO_ID { get; set; }
         public Nullable<int> MUNICIPIO_ID { get; set; }
         public string DIRECCION { get; set; }
-        public int ROL_ID { get; set; }
+        public int CARGO_ID { get; set; }
         public byte[] FOTO { get; set; }
         public string PASSWORD { get; set; }
         public string TELEFONO { get; set; }
         public string EMAIL { get; set; }
         public string HABILITADO { get; set; }
     
+        public virtual CARGOS CARGOS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PAGOS> PAGOS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PRESTAMOS> PRESTAMOS { get; set; }
-        public virtual ROLES ROLES { get; set; }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Cartera_Facil.Model;
 using FontAwesome.Sharp;
 
 namespace Cartera_Facil.View
@@ -22,6 +23,8 @@ namespace Cartera_Facil.View
         {
             InitializeComponent();
             CustomizeDesing();
+            lblNameUser.Text = $"{AuthenticatedUser.NOMBRES} {AuthenticatedUser.APELLIDO}";
+            //FillLabelName();
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 45);
             sideMenuPanel.Controls.Add(leftBorderBtn);
@@ -42,6 +45,8 @@ namespace Cartera_Facil.View
             pnlMain.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
+            iconFormChild.IconChar = currentBtn.IconChar;
+            lblTitleChildForm.Text = childForm.Text;
         }
 
         private void DislabelButton()
@@ -74,8 +79,6 @@ namespace Cartera_Facil.View
                 leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
                 leftBorderBtn.Visible = true;
                 leftBorderBtn.BringToFront();
-
-                iconFormChild.IconChar = currentBtn.IconChar;
             }
 
         }
@@ -83,7 +86,7 @@ namespace Cartera_Facil.View
         private void CustomizeDesing()
         {
             subMenuLoan.Visible = false;
-            subMenuUsers.Visible = false;   
+            subMenuUsers.Visible = false;
         }
 
         private void HideSubMenu()
@@ -96,7 +99,7 @@ namespace Cartera_Facil.View
 
         private void ShowSubMenu(Panel subMenu)
         {
-            if(subMenu.Visible == false)
+            if (subMenu.Visible == false)
             {
                 HideSubMenu();
                 subMenu.Visible = true;
@@ -108,6 +111,7 @@ namespace Cartera_Facil.View
         private void btnUser_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(27, 29, 29));
+            OpenChildForm(new View.Users());
             ShowSubMenu(subMenuUsers);
         }
 
@@ -142,7 +146,6 @@ namespace Cartera_Facil.View
                 tu
                 codigo
                 aqui*/
-            
             HideSubMenu();
         }
 

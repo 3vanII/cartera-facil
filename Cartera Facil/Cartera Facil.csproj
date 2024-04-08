@@ -128,56 +128,60 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\AuthenticatedUser.cs" />
+    <Compile Include="Model\CARGOS.cs">
+      <DependentUpon>CarteraFacil.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\CARTERA.cs">
-      <DependentUpon>CarteraFacilDDBB.tt</DependentUpon>
+      <DependentUpon>CarteraFacil.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\CarteraFacilDDBB.Context.cs">
+    <Compile Include="Model\CarteraFacil.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CarteraFacilDDBB.Context.tt</DependentUpon>
+      <DependentUpon>CarteraFacil.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\CarteraFacilDDBB.cs">
+    <Compile Include="Model\CarteraFacil.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CarteraFacilDDBB.tt</DependentUpon>
+      <DependentUpon>CarteraFacil.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\CarteraFacilDDBB.Designer.cs">
+    <Compile Include="Model\CarteraFacil.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CarteraFacilDDBB.edmx</DependentUpon>
+      <DependentUpon>CarteraFacil.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\CLIENTES.cs">
-      <DependentUpon>CarteraFacilDDBB.tt</DependentUpon>
+      <DependentUpon>CarteraFacil.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DEPARTAMENTOS.cs">
-      <DependentUpon>CarteraFacilDDBB.tt</DependentUpon>
+      <DependentUpon>CarteraFacil.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DOCUMENTOS.cs">
-      <DependentUpon>CarteraFacilDDBB.tt</DependentUpon>
+      <DependentUpon>CarteraFacil.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\MODALIDAD_PAGO.cs">
-      <DependentUpon>CarteraFacilDDBB.tt</DependentUpon>
+      <DependentUpon>CarteraFacil.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\MUNICIPIOS.cs">
-      <DependentUpon>CarteraFacilDDBB.tt</DependentUpon>
+      <DependentUpon>CarteraFacil.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PAGOS.cs">
-      <DependentUpon>CarteraFacilDDBB.tt</DependentUpon>
+      <DependentUpon>CarteraFacil.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PRESTAMOS.cs">
-      <DependentUpon>CarteraFacilDDBB.tt</DependentUpon>
+      <DependentUpon>CarteraFacil.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\RETIROS.cs">
-      <DependentUpon>CarteraFacilDDBB.tt</DependentUpon>
+      <DependentUpon>CarteraFacil.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ROLES.cs">
-      <DependentUpon>CarteraFacilDDBB.tt</DependentUpon>
+      <DependentUpon>CarteraFacil.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\sysdiagrams.cs">
-      <DependentUpon>CarteraFacilDDBB.tt</DependentUpon>
+      <DependentUpon>CarteraFacil.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\USUARIOS.cs">
-      <DependentUpon>CarteraFacilDDBB.tt</DependentUpon>
+      <DependentUpon>CarteraFacil.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -229,6 +233,12 @@
     <Compile Include="View\Simulator.Designer.cs">
       <DependentUpon>Simulator.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Users.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Users.Designer.cs">
+      <DependentUpon>Users.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\ViewFunctions.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -264,12 +274,15 @@
     <EmbeddedResource Include="View\Simulator.resx">
       <DependentUpon>Simulator.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="Model\CarteraFacilDDBB.edmx">
+    <EmbeddedResource Include="View\Users.resx">
+      <DependentUpon>Users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model\CarteraFacil.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CarteraFacilDDBB.Designer.cs</LastGenOutput>
+      <LastGenOutput>CarteraFacil.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\CarteraFacilDDBB.edmx.diagram">
-      <DependentUpon>CarteraFacilDDBB.edmx</DependentUpon>
+    <None Include="Model\CarteraFacil.edmx.diagram">
+      <DependentUpon>CarteraFacil.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -296,17 +309,19 @@
     <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.3.3.2\analyzers\dotnet\cs\Microsoft.NetFramework.CSharp.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\CarteraFacilDDBB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CarteraFacilDDBB.edmx</DependentUpon>
-      <LastGenOutput>CarteraFacilDDBB.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model\CarteraFacilDDBB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CarteraFacilDDBB.edmx</DependentUpon>
-      <LastGenOutput>CarteraFacilDDBB.cs</LastGenOutput>
-    </Content>
     <None Include="Resources\carteraFacil.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\CarteraFacil.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CarteraFacil.edmx</DependentUpon>
+      <LastGenOutput>CarteraFacil.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\CarteraFacil.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CarteraFacil.edmx</DependentUpon>
+      <LastGenOutput>CarteraFacil.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

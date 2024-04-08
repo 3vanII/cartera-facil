@@ -14,7 +14,7 @@ namespace Cartera_Facil.View
     public partial class ChangePassword : Form
     {
         ViewFunctions obj = new ViewFunctions();
-        Entities2 entities = new Entities2();
+        Entities3 entities = new Entities3();
         private string email;
         private string code;
         public ChangePassword(string email, string code)

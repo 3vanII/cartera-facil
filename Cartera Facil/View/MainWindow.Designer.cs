@@ -41,16 +41,17 @@
             this.btnWallet = new FontAwesome.Sharp.IconButton();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTitleChildForm = new System.Windows.Forms.Label();
+            this.iconFormChild = new FontAwesome.Sharp.IconPictureBox();
             this.lblNameUser = new System.Windows.Forms.Label();
             this.pictureProfile = new Guna.UI.WinForms.GunaPictureBox();
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.iconFormChild = new FontAwesome.Sharp.IconPictureBox();
             this.sideMenuPanel.SuspendLayout();
             this.subMenuLoan.SuspendLayout();
             this.subMenuUsers.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureProfile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconFormChild)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureProfile)).BeginInit();
             this.SuspendLayout();
             // 
             // sideMenuPanel
@@ -68,7 +69,7 @@
             this.sideMenuPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.sideMenuPanel.Location = new System.Drawing.Point(0, 0);
             this.sideMenuPanel.Name = "sideMenuPanel";
-            this.sideMenuPanel.Size = new System.Drawing.Size(200, 600);
+            this.sideMenuPanel.Size = new System.Drawing.Size(200, 641);
             this.sideMenuPanel.TabIndex = 0;
             // 
             // btnToday
@@ -284,50 +285,27 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(125)))), ((int)(((byte)(207)))));
+            this.panel1.Controls.Add(this.lblTitleChildForm);
             this.panel1.Controls.Add(this.iconFormChild);
             this.panel1.Controls.Add(this.lblNameUser);
             this.panel1.Controls.Add(this.pictureProfile);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(200, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(750, 58);
+            this.panel1.Size = new System.Drawing.Size(953, 58);
             this.panel1.TabIndex = 1;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
-            // lblNameUser
+            // lblTitleChildForm
             // 
-            this.lblNameUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblNameUser.AutoSize = true;
-            this.lblNameUser.Font = new System.Drawing.Font("Segoe UI", 12.25F);
-            this.lblNameUser.ForeColor = System.Drawing.Color.White;
-            this.lblNameUser.Location = new System.Drawing.Point(398, 14);
-            this.lblNameUser.Name = "lblNameUser";
-            this.lblNameUser.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblNameUser.Size = new System.Drawing.Size(296, 23);
-            this.lblNameUser.TabIndex = 10;
-            this.lblNameUser.Text = "IVAN DAVID BERMUDEZ CASTAÑEDA";
-            this.lblNameUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // pictureProfile
-            // 
-            this.pictureProfile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureProfile.BackColor = System.Drawing.Color.Transparent;
-            this.pictureProfile.BaseColor = System.Drawing.Color.IndianRed;
-            this.pictureProfile.Location = new System.Drawing.Point(700, 9);
-            this.pictureProfile.Name = "pictureProfile";
-            this.pictureProfile.Radius = 18;
-            this.pictureProfile.Size = new System.Drawing.Size(35, 35);
-            this.pictureProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureProfile.TabIndex = 4;
-            this.pictureProfile.TabStop = false;
-            // 
-            // pnlMain
-            // 
-            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMain.Location = new System.Drawing.Point(200, 58);
-            this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(750, 542);
-            this.pnlMain.TabIndex = 2;
+            this.lblTitleChildForm.AutoSize = true;
+            this.lblTitleChildForm.Font = new System.Drawing.Font("Segoe UI", 16.25F, System.Drawing.FontStyle.Bold);
+            this.lblTitleChildForm.ForeColor = System.Drawing.Color.White;
+            this.lblTitleChildForm.Location = new System.Drawing.Point(58, 14);
+            this.lblTitleChildForm.Name = "lblTitleChildForm";
+            this.lblTitleChildForm.Size = new System.Drawing.Size(75, 30);
+            this.lblTitleChildForm.TabIndex = 12;
+            this.lblTitleChildForm.Text = "Home";
             // 
             // iconFormChild
             // 
@@ -342,11 +320,46 @@
             this.iconFormChild.TabIndex = 11;
             this.iconFormChild.TabStop = false;
             // 
+            // lblNameUser
+            // 
+            this.lblNameUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblNameUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(125)))), ((int)(((byte)(207)))));
+            this.lblNameUser.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.lblNameUser.ForeColor = System.Drawing.Color.White;
+            this.lblNameUser.Location = new System.Drawing.Point(520, 15);
+            this.lblNameUser.Name = "lblNameUser";
+            this.lblNameUser.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblNameUser.Size = new System.Drawing.Size(377, 23);
+            this.lblNameUser.TabIndex = 10;
+            this.lblNameUser.Text = "Ivan";
+            this.lblNameUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pictureProfile
+            // 
+            this.pictureProfile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureProfile.BackColor = System.Drawing.Color.Transparent;
+            this.pictureProfile.BaseColor = System.Drawing.Color.IndianRed;
+            this.pictureProfile.Location = new System.Drawing.Point(903, 9);
+            this.pictureProfile.Name = "pictureProfile";
+            this.pictureProfile.Radius = 18;
+            this.pictureProfile.Size = new System.Drawing.Size(35, 35);
+            this.pictureProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureProfile.TabIndex = 4;
+            this.pictureProfile.TabStop = false;
+            // 
+            // pnlMain
+            // 
+            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlMain.Location = new System.Drawing.Point(200, 58);
+            this.pnlMain.Name = "pnlMain";
+            this.pnlMain.Size = new System.Drawing.Size(953, 583);
+            this.pnlMain.TabIndex = 2;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 600);
+            this.ClientSize = new System.Drawing.Size(1153, 641);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.sideMenuPanel);
@@ -359,8 +372,8 @@
             this.subMenuUsers.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureProfile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconFormChild)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureProfile)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -384,5 +397,6 @@
         private Guna.UI.WinForms.GunaPictureBox pictureProfile;
         private System.Windows.Forms.Label lblNameUser;
         private FontAwesome.Sharp.IconPictureBox iconFormChild;
+        private System.Windows.Forms.Label lblTitleChildForm;
     }
 }
