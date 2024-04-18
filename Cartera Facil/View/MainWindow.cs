@@ -123,11 +123,10 @@ namespace Cartera_Facil.View
 
         private void btnCreateUser_Click(object sender, EventArgs e)
         {
-            /*escribe
-                tu
-                codigo
-                aqui*/
-            OpenChildForm(new View.CreateUser());
+            if((AuthenticatedUser.ROLE == "ADMIN") || (AuthenticatedUser.ROLE == "USER_WRITER"))
+                OpenChildForm(new View.CreateUser());
+            else
+                MessageBox.Show("No posees los permisos de acceso", "Cartera Facil", MessageBoxButtons.OK, MessageBoxIcon.Information);
             HideSubMenu();
         }
 

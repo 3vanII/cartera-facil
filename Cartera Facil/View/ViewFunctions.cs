@@ -295,7 +295,5 @@ namespace Cartera_Facil.View
                         Email = empleado.EMAIL
                     }).ToList<object>();
         }
-
-       
     }
 }

@@ -32,6 +32,7 @@
             Guna.UI.WinForms.GunaButton btnCreate;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateUser));
             this.panelCreateUser = new System.Windows.Forms.Panel();
+            this.ComboBoxCargo = new Guna.UI.WinForms.GunaComboBox();
             this.lblEmailInvalid = new System.Windows.Forms.Label();
             this.lblIdentificationNumberInvalid = new System.Windows.Forms.Label();
             this.lblConfirmationEmail = new System.Windows.Forms.Label();
@@ -71,7 +72,7 @@
             btnCancel.ForeColor = System.Drawing.Color.Black;
             btnCancel.Image = null;
             btnCancel.ImageSize = new System.Drawing.Size(20, 20);
-            btnCancel.Location = new System.Drawing.Point(490, 447);
+            btnCancel.Location = new System.Drawing.Point(756, 442);
             btnCancel.Name = "btnCancel";
             btnCancel.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             btnCancel.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -79,7 +80,7 @@
             btnCancel.OnHoverImage = null;
             btnCancel.OnPressedColor = System.Drawing.Color.Black;
             btnCancel.Radius = 10;
-            btnCancel.Size = new System.Drawing.Size(99, 45);
+            btnCancel.Size = new System.Drawing.Size(99, 37);
             btnCancel.TabIndex = 59;
             btnCancel.Text = "Cancel";
             btnCancel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -99,7 +100,7 @@
             btnCreate.ForeColor = System.Drawing.Color.Black;
             btnCreate.Image = null;
             btnCreate.ImageSize = new System.Drawing.Size(20, 20);
-            btnCreate.Location = new System.Drawing.Point(360, 447);
+            btnCreate.Location = new System.Drawing.Point(627, 442);
             btnCreate.Name = "btnCreate";
             btnCreate.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             btnCreate.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -107,7 +108,7 @@
             btnCreate.OnHoverImage = null;
             btnCreate.OnPressedColor = System.Drawing.Color.Black;
             btnCreate.Radius = 10;
-            btnCreate.Size = new System.Drawing.Size(97, 45);
+            btnCreate.Size = new System.Drawing.Size(97, 37);
             btnCreate.TabIndex = 58;
             btnCreate.Text = "CREATE";
             btnCreate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -118,6 +119,7 @@
             this.panelCreateUser.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelCreateUser.AutoScroll = true;
             this.panelCreateUser.AutoSize = true;
+            this.panelCreateUser.Controls.Add(this.ComboBoxCargo);
             this.panelCreateUser.Controls.Add(this.lblEmailInvalid);
             this.panelCreateUser.Controls.Add(this.lblIdentificationNumberInvalid);
             this.panelCreateUser.Controls.Add(this.lblConfirmationEmail);
@@ -144,13 +146,33 @@
             this.panelCreateUser.Size = new System.Drawing.Size(950, 580);
             this.panelCreateUser.TabIndex = 0;
             // 
+            // ComboBoxCargo
+            // 
+            this.ComboBoxCargo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ComboBoxCargo.BackColor = System.Drawing.Color.Transparent;
+            this.ComboBoxCargo.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.ComboBoxCargo.BorderColor = System.Drawing.Color.Black;
+            this.ComboBoxCargo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.ComboBoxCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBoxCargo.FocusedColor = System.Drawing.Color.Empty;
+            this.ComboBoxCargo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ComboBoxCargo.ForeColor = System.Drawing.Color.Black;
+            this.ComboBoxCargo.FormattingEnabled = true;
+            this.ComboBoxCargo.Location = new System.Drawing.Point(93, 449);
+            this.ComboBoxCargo.Name = "ComboBoxCargo";
+            this.ComboBoxCargo.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.ComboBoxCargo.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.ComboBoxCargo.Radius = 10;
+            this.ComboBoxCargo.Size = new System.Drawing.Size(230, 30);
+            this.ComboBoxCargo.TabIndex = 68;
+            // 
             // lblEmailInvalid
             // 
             this.lblEmailInvalid.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblEmailInvalid.AutoSize = true;
             this.lblEmailInvalid.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmailInvalid.ForeColor = System.Drawing.Color.Red;
-            this.lblEmailInvalid.Location = new System.Drawing.Point(770, 320);
+            this.lblEmailInvalid.Location = new System.Drawing.Point(770, 310);
             this.lblEmailInvalid.Name = "lblEmailInvalid";
             this.lblEmailInvalid.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblEmailInvalid.Size = new System.Drawing.Size(88, 17);
@@ -165,7 +187,7 @@
             this.lblIdentificationNumberInvalid.AutoSize = true;
             this.lblIdentificationNumberInvalid.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIdentificationNumberInvalid.ForeColor = System.Drawing.Color.Red;
-            this.lblIdentificationNumberInvalid.Location = new System.Drawing.Point(673, 124);
+            this.lblIdentificationNumberInvalid.Location = new System.Drawing.Point(673, 134);
             this.lblIdentificationNumberInvalid.Name = "lblIdentificationNumberInvalid";
             this.lblIdentificationNumberInvalid.Size = new System.Drawing.Size(183, 17);
             this.lblIdentificationNumberInvalid.TabIndex = 66;
@@ -178,7 +200,7 @@
             this.lblConfirmationEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblConfirmationEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 14.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConfirmationEmail.ForeColor = System.Drawing.Color.Red;
-            this.lblConfirmationEmail.Location = new System.Drawing.Point(839, 255);
+            this.lblConfirmationEmail.Location = new System.Drawing.Point(839, 245);
             this.lblConfirmationEmail.Name = "lblConfirmationEmail";
             this.lblConfirmationEmail.Size = new System.Drawing.Size(18, 25);
             this.lblConfirmationEmail.TabIndex = 65;
@@ -190,7 +212,7 @@
             this.lblConfirmationPhone.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblConfirmationPhone.Font = new System.Drawing.Font("Segoe UI Semibold", 14.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConfirmationPhone.ForeColor = System.Drawing.Color.Red;
-            this.lblConfirmationPhone.Location = new System.Drawing.Point(570, 257);
+            this.lblConfirmationPhone.Location = new System.Drawing.Point(570, 247);
             this.lblConfirmationPhone.Name = "lblConfirmationPhone";
             this.lblConfirmationPhone.Size = new System.Drawing.Size(18, 25);
             this.lblConfirmationPhone.TabIndex = 64;
@@ -202,7 +224,7 @@
             this.lblConfirmationResidenceAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblConfirmationResidenceAddress.Font = new System.Drawing.Font("Segoe UI Semibold", 14.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConfirmationResidenceAddress.ForeColor = System.Drawing.Color.Red;
-            this.lblConfirmationResidenceAddress.Location = new System.Drawing.Point(837, 355);
+            this.lblConfirmationResidenceAddress.Location = new System.Drawing.Point(837, 333);
             this.lblConfirmationResidenceAddress.Name = "lblConfirmationResidenceAddress";
             this.lblConfirmationResidenceAddress.Size = new System.Drawing.Size(18, 25);
             this.lblConfirmationResidenceAddress.TabIndex = 63;
@@ -238,7 +260,7 @@
             this.lblConfirmationIdentificationNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblConfirmationIdentificationNumber.Font = new System.Drawing.Font("Segoe UI Semibold", 14.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConfirmationIdentificationNumber.ForeColor = System.Drawing.Color.Red;
-            this.lblConfirmationIdentificationNumber.Location = new System.Drawing.Point(839, 63);
+            this.lblConfirmationIdentificationNumber.Location = new System.Drawing.Point(839, 73);
             this.lblConfirmationIdentificationNumber.Name = "lblConfirmationIdentificationNumber";
             this.lblConfirmationIdentificationNumber.Size = new System.Drawing.Size(18, 25);
             this.lblConfirmationIdentificationNumber.TabIndex = 60;
@@ -257,7 +279,7 @@
             this.ComboBoxRol.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ComboBoxRol.ForeColor = System.Drawing.Color.Black;
             this.ComboBoxRol.FormattingEnabled = true;
-            this.ComboBoxRol.Location = new System.Drawing.Point(93, 287);
+            this.ComboBoxRol.Location = new System.Drawing.Point(360, 449);
             this.ComboBoxRol.Name = "ComboBoxRol";
             this.ComboBoxRol.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.ComboBoxRol.OnHoverItemForeColor = System.Drawing.Color.White;
@@ -276,7 +298,7 @@
             this.txtEmail.FocusedBorderColor = System.Drawing.Color.Black;
             this.txtEmail.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(627, 285);
+            this.txtEmail.Location = new System.Drawing.Point(627, 275);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PasswordChar = '\0';
             this.txtEmail.Radius = 10;
@@ -295,7 +317,7 @@
             this.txtPhone.FocusedBorderColor = System.Drawing.Color.Black;
             this.txtPhone.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtPhone.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhone.Location = new System.Drawing.Point(360, 285);
+            this.txtPhone.Location = new System.Drawing.Point(360, 275);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.PasswordChar = '\0';
             this.txtPhone.Radius = 10;
@@ -314,7 +336,7 @@
             this.txtResidenceAddress.FocusedBorderColor = System.Drawing.Color.Black;
             this.txtResidenceAddress.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtResidenceAddress.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtResidenceAddress.Location = new System.Drawing.Point(627, 383);
+            this.txtResidenceAddress.Location = new System.Drawing.Point(627, 361);
             this.txtResidenceAddress.Name = "txtResidenceAddress";
             this.txtResidenceAddress.PasswordChar = '\0';
             this.txtResidenceAddress.Radius = 10;
@@ -339,7 +361,7 @@
             "w",
             "r",
             "t"});
-            this.ComboBoxCity.Location = new System.Drawing.Point(360, 385);
+            this.ComboBoxCity.Location = new System.Drawing.Point(358, 363);
             this.ComboBoxCity.MaxDropDownItems = 6;
             this.ComboBoxCity.Name = "ComboBoxCity";
             this.ComboBoxCity.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
@@ -361,7 +383,7 @@
             this.ComboBoxDepartaments.ForeColor = System.Drawing.Color.Black;
             this.ComboBoxDepartaments.FormattingEnabled = true;
             this.ComboBoxDepartaments.IntegralHeight = false;
-            this.ComboBoxDepartaments.Location = new System.Drawing.Point(93, 385);
+            this.ComboBoxDepartaments.Location = new System.Drawing.Point(93, 363);
             this.ComboBoxDepartaments.MaxDropDownItems = 6;
             this.ComboBoxDepartaments.Name = "ComboBoxDepartaments";
             this.ComboBoxDepartaments.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
@@ -420,7 +442,7 @@
             this.txtIdentificationNumber.FocusedBorderColor = System.Drawing.Color.Black;
             this.txtIdentificationNumber.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtIdentificationNumber.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdentificationNumber.Location = new System.Drawing.Point(627, 89);
+            this.txtIdentificationNumber.Location = new System.Drawing.Point(627, 99);
             this.txtIdentificationNumber.Name = "txtIdentificationNumber";
             this.txtIdentificationNumber.PasswordChar = '\0';
             this.txtIdentificationNumber.Radius = 10;
@@ -440,7 +462,7 @@
             this.ComboBoxDocumentsType.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ComboBoxDocumentsType.ForeColor = System.Drawing.Color.Black;
             this.ComboBoxDocumentsType.FormattingEnabled = true;
-            this.ComboBoxDocumentsType.Location = new System.Drawing.Point(360, 91);
+            this.ComboBoxDocumentsType.Location = new System.Drawing.Point(360, 101);
             this.ComboBoxDocumentsType.Name = "ComboBoxDocumentsType";
             this.ComboBoxDocumentsType.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.ComboBoxDocumentsType.OnHoverItemForeColor = System.Drawing.Color.White;
@@ -456,10 +478,10 @@
             this.ptbhoto.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.ptbhoto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ptbhoto.Image = ((System.Drawing.Image)(resources.GetObject("ptbhoto.Image")));
-            this.ptbhoto.Location = new System.Drawing.Point(134, 91);
+            this.ptbhoto.Location = new System.Drawing.Point(118, 101);
             this.ptbhoto.Name = "ptbhoto";
             this.ptbhoto.Radius = 10;
-            this.ptbhoto.Size = new System.Drawing.Size(139, 165);
+            this.ptbhoto.Size = new System.Drawing.Size(180, 206);
             this.ptbhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbhoto.TabIndex = 43;
             this.ptbhoto.TabStop = false;
@@ -504,5 +526,6 @@
         private Guna.UI.WinForms.GunaTextBox txtIdentificationNumber;
         private Guna.UI.WinForms.GunaComboBox ComboBoxDocumentsType;
         private Guna.UI.WinForms.GunaPictureBox ptbhoto;
+        private Guna.UI.WinForms.GunaComboBox ComboBoxCargo;
     }
 }

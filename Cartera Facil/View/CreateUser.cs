@@ -34,8 +34,9 @@ namespace Cartera_Facil.View
         private void CargarComboBox()
         {
             obj.LlenarCombobox(entities.DOCUMENTOS.ToList(), "ID", "DOCUMENTO", ComboBoxDocumentsType, "Tipo de documento");
-            obj.LlenarCombobox(entities.ROLES.ToList(), "ID", "ROL", ComboBoxRol, "Cargo");
+            obj.LlenarCombobox(entities.ROLES.ToList(), "ID", "ROL", ComboBoxRol, "Rol");
             obj.LlenarCombobox(entities.DEPARTAMENTOS.OrderBy(dpto => dpto.DEPARTAMENTO).ToList(), "ID", "DEPARTAMENTO", ComboBoxDepartaments, "Departamento");
+            obj.LlenarCombobox(entities.CARGOS.ToList(), "ID", "CARGO", ComboBoxCargo, "Cargo");
         }
 
         private void ComboBoxDepartaments_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -106,8 +107,9 @@ namespace Cartera_Facil.View
             ob.DEPARTAMENTO_ID = (int)ComboBoxDepartaments.SelectedValue;
             ob.MUNICIPIO_ID = (int)ComboBoxCity.SelectedValue;
             ob.DIRECCION = txtResidenceAddress.Text.ToUpper();
-            ob.CARGO_ID = (int)ComboBoxRol.SelectedValue;
+            ob.ROL_ID = (int)ComboBoxRol.SelectedValue;
             ob.EMAIL = txtEmail.Text.ToUpper();
+            ob.CARGO_ID = (int)ComboBoxCargo.SelectedValue;
             if (ptbhoto != null)
                 ob.FOTO = ViewFunctions.Image2Byte(ptbhoto.Image);
             else
@@ -180,7 +182,5 @@ namespace Cartera_Facil.View
         {
             obj.UploadImage(ptbhoto);
         }
-
     }
-
 }

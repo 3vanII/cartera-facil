@@ -17,7 +17,7 @@ namespace Cartera_Facil.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ROLES()
         {
-            this.CARGOS = new HashSet<CARGOS>();
+            this.USUARIOS = new HashSet<USUARIOS>();
         }
     
         public int ID { get; set; }
@@ -25,6 +25,6 @@ namespace Cartera_Facil.Model
         public string DESCRIPCION { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CARGOS> CARGOS { get; set; }
+        public virtual ICollection<USUARIOS> USUARIOS { get; set; }
     }
 }

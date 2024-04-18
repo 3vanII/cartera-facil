@@ -137,7 +137,7 @@ namespace Cartera_Facil.View
                     authenticatedUser = db.USUARIOS
                         .Where(u => u.EMAIL == user.Text.ToUpper() && u.PASSWORD == passwordEncript && u.HABILITADO == "true")
                         .FirstOrDefault();
-                    if(authenticatedUser == null)
+                    if (authenticatedUser == null)
                     {
                         passInvalid.Visible = true;
                     }
@@ -152,6 +152,10 @@ namespace Cartera_Facil.View
                         AuthenticatedUser.FOTO = authenticatedUser.FOTO;
                         AuthenticatedUser.EMAIL = authenticatedUser.EMAIL;
                         AuthenticatedUser.HABILITADO = authenticatedUser.HABILITADO;
+                        AuthenticatedUser.ROLE = (from usuario in db.USUARIOS
+                                                  join rol in db.ROLES on usuario.ROL_ID equals rol.ID
+                                                  where usuario.EMAIL == authenticatedUser.EMAIL
+                                                  select rol.ROL).FirstOrDefault();
                     }
                 }
 
