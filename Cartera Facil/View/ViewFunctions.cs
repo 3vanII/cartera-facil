@@ -103,8 +103,25 @@ namespace Cartera_Facil.View
             {
                 Image imagen = Image.FromFile(searchImage.FileName);
                 ob.Image = imagen;
+                return imagen;
             }
-            return ob.Image;
+            return null;
+        }
+
+        public void ShowImageInPictureBox(byte[] imagenBytes, PictureBox pictureBox)//Mostrar imagen
+        {
+            if (imagenBytes != null && imagenBytes.Length > 0)
+            {
+                using (MemoryStream ms = new MemoryStream(imagenBytes))
+                {
+                    Image imagen = Image.FromStream(ms);
+                    pictureBox.Image = imagen;
+                }
+            }
+            else
+            {
+                pictureBox.Image = null;
+            }
         }
 
         public string GenerateRandomCode()
@@ -225,6 +242,18 @@ namespace Cartera_Facil.View
             ob.DataSource = lista;
             ob.MaxDropDownItems = 5;
             ob.Text = nameCombobox;
+            ob.Refresh();
+        }
+
+        public void LlenarCombobox<E>(List<E> lista, string valueMember, string displayMember, ComboBox ob, string nameCombobox, int? defaultValue)
+        {
+            E defaultObject = lista.FirstOrDefault(item => Convert.ToInt32(item.GetType().GetProperty(valueMember).GetValue(item)) == defaultValue);
+            ob.DisplayMember = displayMember;
+            ob.ValueMember = valueMember;
+            ob.DataSource = lista;
+            ob.MaxDropDownItems = 5;
+            ob.Text = nameCombobox;
+            ob.SelectedItem = defaultObject;
             ob.Refresh();
         }
 

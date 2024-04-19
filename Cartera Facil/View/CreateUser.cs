@@ -117,7 +117,7 @@ namespace Cartera_Facil.View
                 ob.FOTO = ViewFunctions.Image2Byte(obj.UploadPhotoByDefault
                     (DefailPhoto, ptbhoto));
             }
-            ob.PASSWORD = txtIdentificationNumber.Text;
+            ob.PASSWORD = obj.HashPassword(txtIdentificationNumber.Text);
             ob.TELEFONO = txtPhone.Text;
             ob.HABILITADO = "true";
             return ob;

@@ -60,3 +60,4 @@ C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\obj\Debug\Cartera
 C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\obj\Debug\Cartera_Facil.View.Users.resources
 C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\obj\Debug\Cartera .3A988B4B.Up2Date
 C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\obj\Debug\Cartera_Facil.View.UserView.resources
+C:\Users\nikol\Documents\proyectos\Cartera Facil\Cartera Facil\obj\Debug\Cartera_Facil.View.EditUser.resources
